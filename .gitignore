@@ -1,0 +1,7 @@
+/.idea
+/.idea/*
+/lib
+/lib/*
+/target
+/target/*
+Shop.iml
