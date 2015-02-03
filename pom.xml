@@ -8,7 +8,7 @@
     <artifactId>Shop</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    
+
     <properties>
         <!-- Generic properties -->
         <java.version>1.6</java.version>
@@ -17,6 +17,9 @@
 
         <!-- Spring -->
         <spring-framework.version>4.0.3.RELEASE</spring-framework.version>
+
+        <!-- Spring Security -->
+        <spring-security.version>3.2.5.RELEASE</spring-security.version>
 
         <!-- Hibernate / JPA -->
         <!-- <hibernate.version>4.3.5.Final</hibernate.version> -->
@@ -40,12 +43,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
-        </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -57,11 +54,11 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.0.5</version>
+            <version>5.1.9</version>
         </dependency>
 
 
-        <!-- Spring and Transactions -->
+        <!-- Spring context and Transactions -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -96,14 +93,12 @@
 
 
 
-        <!-- Others (servlets) -->
+        <!-- Spring MVC -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
-
-        <!-- Spring MVC -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -115,7 +110,24 @@
             <version>1.2</version>
         </dependency>
 
+        <!-- jstl for jsp page -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
 
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>3.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>3.2.5.RELEASE</version>
+        </dependency>
 
     </dependencies>
 </project>

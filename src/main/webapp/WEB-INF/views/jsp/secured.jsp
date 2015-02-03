@@ -1,0 +1,1 @@
+<h1>Secured area</h1>
