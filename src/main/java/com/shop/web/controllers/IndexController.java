@@ -1,4 +1,4 @@
-package com.shop.controllers;
+package com.shop.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,6 @@ public class IndexController {
     @RequestMapping(value = {"/", "/welcome"})
     public ModelAndView index(ModelAndView model) {
         model.setViewName("index");
-
         return model;
     }
 

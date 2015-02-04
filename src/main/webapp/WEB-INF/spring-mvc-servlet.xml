@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.shop.controllers" />
+    <context:component-scan base-package="com.shop.web.controllers" />
     
     <mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
     <mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
@@ -16,9 +16,10 @@
 
     <import resource="applicationContext.xml" />
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="order" value="2" />
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+    <bean id="viewResolver" class="com.shop.web.utils.views.MyViewResolver">
+        <property name="viewClass" value="com.shop.web.utils.views.MyView" />
+        <property name="layout" value="layouts/layout" />
+        <property name="order" value="1" />
         <property name="prefix" value="/WEB-INF/views/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
