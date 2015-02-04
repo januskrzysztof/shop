@@ -14,8 +14,6 @@
     <mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
     <mvc:annotation-driven />
 
-    <import resource="applicationContext.xml" />
-
     <bean id="viewResolver" class="com.shop.web.utils.views.MyViewResolver">
         <property name="viewClass" value="com.shop.web.utils.views.MyView" />
         <property name="layout" value="layouts/layout" />
