@@ -25,6 +25,10 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
         User user = userRepository.findUserByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException(username);
+        }
+
         List<GrantedAuthority> authorities = new ArrayList<>();
         Role role = user.getRole();
 

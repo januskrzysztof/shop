@@ -1,5 +1,7 @@
 package com.shop.web.controllers;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,10 +24,14 @@ public class IndexController {
     /**
      * Secured area
      */
-    @RequestMapping(value = "/admin**")
-    public ModelAndView secured(ModelAndView model) {
-        model.setViewName("secured");
+    @Secured("ROLE_ADMIN")
+    @RequestMapping(value = "/admin")
+    public String admin() {
+        return "secured";
+    }
 
-        return model;
+    @RequestMapping("/secured")
+    public String secured() {
+        return "secured";
     }
 }

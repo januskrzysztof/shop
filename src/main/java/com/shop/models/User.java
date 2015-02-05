@@ -19,7 +19,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "enabled", nullable = false)
+    @Column(name = "enabled", nullable = false, columnDefinition = "default = 1")
     private boolean enabled;
 
     @ManyToOne(targetEntity = Role.class, fetch = FetchType.EAGER)
