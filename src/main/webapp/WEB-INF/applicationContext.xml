@@ -28,7 +28,10 @@
 
     <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven />
+    <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
+    <!--<tx:jta-transaction-manager />-->
+    <bean id="transactionDefinition" class="org.springframework.transaction.support.DefaultTransactionDefinition" />
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />

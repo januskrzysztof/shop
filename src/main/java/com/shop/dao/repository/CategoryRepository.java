@@ -1,4 +1,4 @@
-package com.shop.repository;
+package com.shop.dao.repository;
 
 import com.shop.models.Category;
 import org.springframework.stereotype.Repository;
