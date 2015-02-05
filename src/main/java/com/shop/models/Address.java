@@ -1,24 +1,27 @@
 package com.shop.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by apbudzinski on 2015-02-05.
  */
 @Entity
-@Table (name = "address")
+@Table(name = "address")
 public class Address {
-    @Column (nullable = false)
+
+    @Id
+    @GeneratedValue
+    @Column
+    int id;
+    @Column(nullable = false)
     private String country;
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String city;
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String street;
-    @Column (name = "house_number", nullable = false)
+    @Column(name = "house_number", nullable = false)
     private String houseNumber;
-    @Column (name = "postal_code", nullable = false)
+    @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
     public String getCountry() {

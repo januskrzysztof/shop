@@ -26,6 +26,12 @@ public class User {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
+
+
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
+
     public User() { }
 
     public User(String username, String password) {
@@ -47,5 +53,12 @@ public class User {
 
     public Role getRole() {
         return role;
+    }
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }

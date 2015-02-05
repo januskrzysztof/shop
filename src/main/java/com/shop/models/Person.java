@@ -25,7 +25,7 @@ public class Person {
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn (name = "address_id", referencedColumnName = "id")
     private Address address;
 
@@ -33,10 +33,6 @@ public class Person {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstName() {
