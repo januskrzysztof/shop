@@ -72,4 +72,16 @@ public class User {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public int getId() {
+        return id;
+    }
 }
