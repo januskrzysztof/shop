@@ -16,11 +16,15 @@ public class Order {
     @Column
     int id;
 
+
+
     @ManyToMany (cascade = CascadeType.ALL)
-    @JoinTable (name = "client_has_products",
-            joinColumns        = {@JoinColumn(name = "client_id", nullable = false, updatable = false)},
+    @JoinTable (name = "ordered_products",
+            joinColumns        = {@JoinColumn(name = "order_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "product_id", nullable = false, updatable = false)})
     private List<Product> products;
+
+
 
     public int getId() {
         return id;

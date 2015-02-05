@@ -27,6 +27,9 @@ public class User {
     private Role role;
 
 
+    @ManyToOne
+    @JoinColumn (name = "order_id", referencedColumnName = "id")
+    private Order order;
 
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
@@ -60,5 +63,13 @@ public class User {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
