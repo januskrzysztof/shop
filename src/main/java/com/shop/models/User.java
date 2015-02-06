@@ -1,5 +1,10 @@
 package com.shop.models;
 
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 /**
@@ -14,10 +19,19 @@ public class User {
     private int id;
 
     @Column(name = "username", nullable = false, unique = true)
+    @NotEmpty(message = "Please enter Your email")
+    @Email
     private String username;
 
     @Column(name = "password", nullable = false)
+    @NotEmpty
+    @Length(min = 3)
     private String password;
+
+    @Transient
+    @NotEmpty
+    @Length(min = 3)
+    private String confirmPassword;
 
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
@@ -41,8 +55,24 @@ public class User {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
     public boolean isEnabled() {
@@ -70,5 +100,16 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", enabled=" + enabled +
+                ", id=" + id +
+                '}';
     }
 }
