@@ -18,7 +18,11 @@ public class UserRepository implements UserDao {
     @Override
     public User findUserByUsername(String username) {
         Session session = em.openSession();
-        return (User) session.createQuery("from User u where u.username = :username").setParameter("username", username).list().get(0);
+        try {
+            return (User) session.createQuery("from User u where u.username = :username").setParameter("username", username).list().get(0);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 
     @Override
@@ -48,6 +52,7 @@ public class UserRepository implements UserDao {
 
         try {
             session.delete(user);
+            session.flush();
             tx.commit();
         } catch (Exception ex) {
             tx.rollback();
@@ -62,6 +67,7 @@ public class UserRepository implements UserDao {
 
         try {
             session.save(user);
+            session.flush();
             tx.commit();
         } catch (Exception ex) {
             tx.rollback();

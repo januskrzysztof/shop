@@ -1,5 +1,6 @@
 package com.shop.dao;
 
+import com.shop.exceptions.DaoException;
 import com.shop.models.Product;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public interface ProductDao {
     public List<Product> getProducts(int offset, int limit);
     public Product getProduct(int id);
-    public void remove(Product product);
-    public void update(Product product);
-    public void add(Product product);
+    public void remove(Product product) throws DaoException;
+    public void update(Product product) throws DaoException;
+    public void add(Product product) throws DaoException;
 }

@@ -19,17 +19,12 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "enabled", nullable = false, columnDefinition = "default = 1")
+    @Column(name = "enabled", nullable = false)
     private boolean enabled;
 
     @ManyToOne(targetEntity = Role.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
-
-
-    @ManyToOne
-    @JoinColumn (name = "order_id", referencedColumnName = "id")
-    private Order order;
 
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
@@ -63,14 +58,6 @@ public class User {
 
     public void setPerson(Person person) {
         this.person = person;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public void setRole(Role role) {

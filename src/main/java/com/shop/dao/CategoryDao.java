@@ -1,5 +1,6 @@
 package com.shop.dao;
 
+import com.shop.exceptions.DaoException;
 import com.shop.models.Category;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public interface CategoryDao {
     public List<Category> getCategories(int offset, int limit);
     public Category getCategory(int id);
-    public void remove(Category category);
-    public void update(Category category);
-    public void add(Category category);
+    public void remove(Category category) throws DaoException;
+    public void update(Category category) throws DaoException;
+    public void add(Category category) throws DaoException;
 }
