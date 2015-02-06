@@ -16,6 +16,7 @@
     <context:annotation-config />
 
     <!-- Security START -->
+    <security:global-method-security secured-annotations="enabled" pre-post-annotations="enabled" />
     <security:http auto-config="true" use-expressions="true">
         <security:intercept-url pattern="/" access="permitAll" />
         <security:form-login

@@ -30,6 +30,7 @@ public class IndexController {
         return "secured";
     }
 
+    @Secured("ROLE_SUPER_ADMIN")
     @RequestMapping("/secured")
     public String secured() {
         return "secured";
