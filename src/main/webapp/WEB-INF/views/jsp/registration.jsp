@@ -15,5 +15,9 @@
         <form:password path="confirmPassword" />
         <form:errors path="confirmPassword" />
     </div>
+    <div>
+        <form:input path="person.firstName" />
+        <form:errors path="person.firstName" />
+    </div>
     <button type="submit">Submit</button>
 </form:form>

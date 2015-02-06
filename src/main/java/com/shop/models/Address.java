@@ -13,14 +13,19 @@ public class Address {
     @GeneratedValue
     @Column
     int id;
+
     @Column(nullable = false)
     private String country;
+
     @Column(nullable = false)
     private String city;
+
     @Column(nullable = false)
     private String street;
+
     @Column(name = "house_number", nullable = false)
     private String houseNumber;
+
     @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
@@ -65,4 +70,15 @@ public class Address {
     }
 
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                '}';
+    }
 }

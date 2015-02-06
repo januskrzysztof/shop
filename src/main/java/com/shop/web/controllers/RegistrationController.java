@@ -1,5 +1,7 @@
 package com.shop.web.controllers;
 
+import com.shop.models.Address;
+import com.shop.models.Person;
 import com.shop.models.User;
 import com.shop.validator.PasswordValidator;
 import org.springframework.stereotype.Controller;
@@ -20,20 +22,23 @@ import java.util.Map;
 public class RegistrationController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView registration() {
-        return new ModelAndView("registration", "user", new User());
+        User user = new User();
+        user.setPerson(new Person(new Address()));
+
+        return new ModelAndView("registration", "user", user);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Map<String, Object> model) {
-        PasswordValidator validator = new PasswordValidator();
+        new PasswordValidator().validate(user, result);
 
-        validator.validate(user, result);
+        if (!result.hasErrors()) {
+            System.out.println("registration process...");
+        }
 
-        System.out.println(result.hasErrors());
         System.out.println(user.toString());
 
         model.put("user", user);
-
         return "registration";
     }
 }
