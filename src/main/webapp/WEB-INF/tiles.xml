@@ -17,4 +17,12 @@
     <definition name="registration" extends="base.definition">
         <put-attribute name="body" value="/WEB-INF/views/jsp/registration.jsp" />
     </definition>
+    
+    <definition name="login" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
+    </definition>
+
+    <definition name="secured" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/views/jsp/secured.jsp" />
+    </definition>
 </tiles-definitions>

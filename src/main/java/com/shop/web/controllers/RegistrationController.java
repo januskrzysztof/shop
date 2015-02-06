@@ -1,8 +1,6 @@
 package com.shop.web.controllers;
 
-import com.shop.dao.repository.UserRepository;
 import com.shop.exceptions.DaoException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,13 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class RegistrationController {
-    @Autowired
-    private UserRepository userRepository;
-
     @RequestMapping("/registration")
     public String registration() throws DaoException {
-        System.out.println(userRepository.findUserByUsername("user"));
-
         return "registration";
     }
 }

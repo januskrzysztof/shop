@@ -3,6 +3,8 @@
 <h1>Login page</h1>
 
 <form method="post" action="<c:url value='/j_spring_security_check' />">
+    <div>${error}</div>
+    ${param.error}
     <div>
         <label>
             Login: <input type="text" name="username" />
