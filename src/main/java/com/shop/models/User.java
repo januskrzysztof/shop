@@ -20,18 +20,16 @@ public class User {
     private int id;
 
     @Column(name = "username", nullable = false, unique = true)
-    @NotEmpty(message = "Please enter Your email")
+    @NotEmpty(message = "E-mail is required")
     @Email
     private String username;
 
     @Column(name = "password", nullable = false)
-    @NotEmpty
-    @Length(min = 3)
+    @Length(min = 3, message = "Password must have a minimum of 3 characters")
     private String password;
 
     @Transient
-    @NotEmpty
-    @Length(min = 3)
+    @Length(min = 3, message = "Password must have a minimum of 3 characters")
     private String confirmPassword;
 
     @Column(name = "enabled", nullable = false)

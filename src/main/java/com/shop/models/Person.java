@@ -17,14 +17,15 @@ public class Person {
     private int id;
 
     @Column(name = "first_name", nullable = false)
-    @NotEmpty(message = "Cannot be empty")
+    @NotEmpty(message = "First name is required")
     private String firstName;
 
     @Column(name = "last_name", nullable = false)
-    @NotEmpty
+    @NotEmpty(message = "Last name is required")
     private String lastName;
 
     @Column(name = "phone_number", nullable = false)
+    @NotEmpty(message = "Phone number is required")
     private String phoneNumber;
 
     @Valid
@@ -67,6 +68,14 @@ public class Person {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
