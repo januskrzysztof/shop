@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="//getbootstrap.com/examples/signin/signin.css">
 
+    <link rel="stylesheet" href="//getbootstrap.com/examples/dashboard/dashboard.css">
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
     <script type="text/javascript"
@@ -29,7 +31,7 @@
 <div class="container">
 
     <!-- Static navbar -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -61,6 +63,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="${current == 'account' ? 'active' : ''}"><a href="/account">My account</a></li>
+                    <li class="${current == 'cart' ? 'active' : ''}"><a href="/cart">My cart</a></li>
                     <li class="${current == 'login' ? 'active' : ''}"><a href="/login">Sign In</a></li>
                     <li class="${current == 'registration' ? 'active' : ''}"><a href="/registration">Register</a></li>
                 </ul>
