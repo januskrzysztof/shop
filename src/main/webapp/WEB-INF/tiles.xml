@@ -26,6 +26,24 @@
         <put-attribute name="current" value="login" />
     </definition>
 
+    <definition name="about" extends="base.definition">
+        <put-attribute name="title" value="About Us Page" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/about.jsp" />
+        <put-attribute name="current" value="about" />
+    </definition>
+
+    <definition name="contact" extends="base.definition">
+        <put-attribute name="title" value="Contact Page" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/contact.jsp" />
+        <put-attribute name="current" value="contact" />
+    </definition>
+
+    <definition name="help" extends="base.definition">
+        <put-attribute name="title" value="Help Page" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/help.jsp" />
+        <put-attribute name="current" value="help" />
+    </definition>
+
     <definition name="secured" extends="base.definition">
         <put-attribute name="body" value="/WEB-INF/views/jsp/secured.jsp" />
     </definition>

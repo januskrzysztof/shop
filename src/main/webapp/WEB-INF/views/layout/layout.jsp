@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <link rel="stylesheet"
           href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
@@ -63,24 +63,57 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="${current == 'account' ? 'active' : ''}"><a href="/account">My account</a></li>
-                    <li class="${current == 'cart' ? 'active' : ''}"><a href="/cart">My cart</a></li>
-                    <li class="${current == 'login' ? 'active' : ''}"><a href="/login">Sign In</a></li>
-                    <li class="${current == 'registration' ? 'active' : ''}"><a href="/registration">Register</a></li>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <li class="${current == 'account' ? 'admin' : ''}"><a href="/admin">Admin Dashboard</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+                        <li class="${current == 'account' ? 'active' : ''}"><a href="/account">My account</a></li>
+                        <li class="${current == 'cart' ? 'active' : ''}"><a href="/cart">My cart</a></li>
+                        <li><a href="/logout">Sign Out</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="isAnonymous()">
+                        <li class="${current == 'login' ? 'active' : ''}"><a href="/login">Sign In</a></li>
+                        <li class="${current == 'registration' ? 'active' : ''}"><a href="/registration">Register</a>
+                        </li>
+                    </sec:authorize>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <tiles:insertAttribute name="body"/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li>CATEGORIES</li>
+                    <li class="${current == 'top' ? 'active' : ''}"><a href="#">Top sales</a></li>
+                    <li class="${current == 'books' ? 'active' : ''}"><a href="#">Books</a></li>
+                    <li class="${current == 'ebooks' ? 'active' : ''}"><a href="#">E-books</a></li>
+                    <li class="${current == 'music' ? 'active' : ''}"><a href="#">Music</a></li>
+                    <li class="${current == 'movies' ? 'active' : ''}"><a href="#">Movies</a></li>
+                    <li class="${current == 'games' ? 'active' : ''}"><a href="#">Games</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li>OTHER</li>
+                    <li class="${current == 'contact' ? 'active' : ''}"><a href="">Contact</a></li>
+                    <li class="${current == 'help' ? 'active' : ''}"><a href="">Help</a></li>
+                    <li class="${current == 'about' ? 'active' : ''}"><a href="">About us</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-    <br>
-    <br>
+                <tiles:insertAttribute name="body"/>
 
-    <div style="text-align: center;">
-        <tiles:insertAttribute name="footer"/>
+                <br><br>
+
+                <div style="text-align: center;">
+                    <tiles:insertAttribute name="footer"/>
+                </div>
+
+            </div>
+
+        </div>
     </div>
-
 </div>
 
 </body>
