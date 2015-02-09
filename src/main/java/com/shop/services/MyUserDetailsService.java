@@ -19,11 +19,11 @@ import java.util.List;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
-    private UserDao userRepository;
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-        User user = userRepository.findUserByUsername(username);
+        User user = userService.findUserByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }

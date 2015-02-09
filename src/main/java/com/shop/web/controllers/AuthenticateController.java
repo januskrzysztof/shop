@@ -1,9 +1,11 @@
 package com.shop.web.controllers;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +23,11 @@ public class AuthenticateController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(@RequestParam(value = "error", required = false) String error, ModelAndView model) {
+    public ModelAndView login(
+            @RequestParam(value = "error", required = false) String error,
+            @RequestParam(value = "register-success", required = false) String register,
+            ModelAndView model
+    ) {
         Authentication authentication = context.getAuthentication();
 
         if (authentication != null && authentication.isAuthenticated()) {
@@ -33,7 +39,9 @@ public class AuthenticateController {
             model.addObject("error", "Invalid username and password");
         }
 
-        model.setViewName("login");
+        if (register != null) {
+            model.addObject("register_success", 1);
+        }
         return model;
     }
 

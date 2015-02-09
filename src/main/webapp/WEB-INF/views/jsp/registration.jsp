@@ -6,6 +6,10 @@
 
     <form:form method="post" class="form-horizontal" action="/registration" commandName="user">
 
+        <form:errors>
+            <div class="alert alert-danger"><form:errors htmlEscape="false"/></div>
+        </form:errors>
+
         <fieldset>
             <legend>Personal Info</legend>
 
@@ -168,6 +172,8 @@
             </div>
 
         </fieldset>
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
         <hr/>
         <div class="col-lg-4" align="center">

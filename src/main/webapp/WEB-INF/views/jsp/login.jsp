@@ -6,6 +6,12 @@
         <div>${error}</div>
         ${param.error}
 
+        <c:if test="${register_success == 1}">
+        <div class="alert alert-success">
+            Your registered successfully
+        </div>
+        </c:if>
+
         <h2 class="form-signin-heading">Please sign in</h2>
 
         <label for="username" class="sr-only">User name</label>

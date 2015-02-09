@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by Krzysztof Januś on 2015-02-02.
  */
 @Controller
-@RequestMapping(value = "/")
 public class IndexController {
     /**
      * Welcome page
