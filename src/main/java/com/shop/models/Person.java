@@ -1,5 +1,7 @@
 package com.shop.models;
 
+import com.shop.validator.Name;
+import com.shop.validator.Phone;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -18,14 +20,17 @@ public class Person {
 
     @Column(name = "first_name", nullable = false)
     @NotEmpty(message = "First name is required")
+    @Name
     private String firstName;
 
     @Column(name = "last_name", nullable = false)
     @NotEmpty(message = "Last name is required")
+    @Name
     private String lastName;
 
     @Column(name = "phone_number", nullable = false)
     @NotEmpty(message = "Phone number is required")
+    @Phone
     private String phoneNumber;
 
     @Valid

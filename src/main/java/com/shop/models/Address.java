@@ -1,5 +1,6 @@
 package com.shop.models;
 
+import com.shop.validator.*;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -18,22 +19,30 @@ public class Address {
 
     @Column(nullable = false)
     @NotEmpty(message = "Country is required")
+    @Name
     private String country;
 
     @Column(nullable = false)
     @NotEmpty(message = "City is required")
+    @Street
     private String city;
 
     @Column(nullable = false)
-    @NotEmpty(message = "Street is required")
+    @Street
     private String street;
 
     @Column(name = "house_number", nullable = false)
     @NotEmpty(message = "House number is required")
+    @HouseNumber
     private String houseNumber;
+
+    @Column(name = "flat_number", nullable = false)
+    @FlatNumber
+    private String flatNumber;
 
     @Column(name = "postal_code", nullable = false)
     @NotEmpty(message = "Postal code is required")
+    @PostalCode
     private String postalCode;
 
     public String getCountry() {
@@ -66,6 +75,14 @@ public class Address {
 
     public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
+    }
+
+    public String getFlatNumber() {
+        return flatNumber;
+    }
+
+    public void setFlatNumber(String flatNumber) {
+        this.flatNumber = flatNumber;
     }
 
     public String getPostalCode() {
