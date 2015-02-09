@@ -25,10 +25,12 @@ public class User {
     private String username;
 
     @Column(name = "password", nullable = false)
+    @NotEmpty(message = "Password is required")
     @Length(min = 3, message = "Password must have a minimum of 3 characters")
     private String password;
 
     @Transient
+    @NotEmpty(message = "Confirm password is required")
     @Length(min = 3, message = "Password must have a minimum of 3 characters")
     private String confirmPassword;
 

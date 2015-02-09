@@ -120,7 +120,7 @@
 
                 <div class="col-lg-4">
                     <form:input id="postalCode" path="person.address.postalCode" cssClass="form-control"
-                                placeholder="Postal code"/>
+                                placeholder="Postal code (e.g. 12345 or 12345-6789)"/>
                     <div>
                         <form:errors path="person.address.postalCode">
                             <div class="alert alert-danger"><form:errors path="person.address.postalCode"/></div>
@@ -148,7 +148,7 @@
 
                 <div class="col-lg-4">
                     <form:input id="street" path="person.address.street" cssClass="form-control"
-                                placeholder="Street"/>
+                                placeholder="Street (optional)"/>
                     <div>
                         <form:errors path="person.address.street">
                             <div class="alert alert-danger"><form:errors path="person.address.street"/></div>
@@ -166,6 +166,20 @@
                     <div>
                         <form:errors path="person.address.houseNumber">
                             <div class="alert alert-danger"><form:errors path="person.address.houseNumber"/></div>
+                        </form:errors>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="flatNumber" class="col-lg-2 control-label">Flat number</label>
+
+                <div class="col-lg-4">
+                    <form:input id="flatNumber" path="person.address.flatNumber" cssClass="form-control"
+                                placeholder="Flat number (optional)"/>
+                    <div>
+                        <form:errors path="person.address.flatNumber">
+                            <div class="alert alert-danger"><form:errors path="person.address.flatNumber"/></div>
                         </form:errors>
                     </div>
                 </div>

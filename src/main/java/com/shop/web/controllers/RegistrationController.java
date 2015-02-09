@@ -40,8 +40,6 @@ public class RegistrationController {
     @RequestMapping(method = RequestMethod.POST)
     public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Map<String, Object> model) {
         new PasswordValidator().validate(user, result);
-        new AddressValidator().validate(user.getPerson().getAddress(), result);
-        new PersonValidator().validate(user.getPerson(), result);
 
         if (!result.hasErrors()) {
             if (userService.findUserByUsername(user.getUsername()) == null) {
