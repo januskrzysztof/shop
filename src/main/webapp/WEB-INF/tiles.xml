@@ -53,4 +53,10 @@
         <put-attribute name="body" value="/WEB-INF/views/jsp/product/add.jsp" />
         <put-attribute name="current" value="products" />
     </definition>
+
+    <definition name="product/search" extends="base.definition">
+        <put-attribute name="title" value="Products search" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/product/search.jsp" />
+        <put-attribute name="current" value="productssearch" />
+    </definition>
 </tiles-definitions>

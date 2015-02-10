@@ -22,7 +22,7 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <%@ include file="taglib.jsp" %>
-    <title><tiles:getAsString name="title" defaultValue="" /></title>
+    <title><tiles:getAsString name="title" defaultValue=""/></title>
 </head>
 <body>
 
@@ -62,6 +62,22 @@
                         </ul>
                     </li>
                 </ul>
+
+                <ul class="nav navbar-nav navbar-center">
+                    <li>
+                        <form class="navbar-form" action="/product/search" method="post">
+                            <div class="form-group">
+                                <label for="productName" style="color:darkgrey">Search</label>
+                                <input type="text" class="form-control" id="productName" name="productName">
+                            </div>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                         <li class="${current == 'account' ? 'admin' : ''}"><a href="/admin">Admin Dashboard</a></li>
@@ -84,6 +100,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li>MAIN</li>
+                    <li class="${current == 'search' ? 'active' : ''}"><a href="/product/search">Search products</a>
+                    </li>
+                </ul>
                 <ul class="nav nav-sidebar">
                     <li>CATEGORIES</li>
                     <li class="${current == 'top' ? 'active' : ''}"><a href="#">Top sales</a></li>

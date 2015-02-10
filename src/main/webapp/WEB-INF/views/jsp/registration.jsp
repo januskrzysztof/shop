@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/layout/taglib.jsp" %>
 
 <div class="row"><h2>Registration</h2></div>
