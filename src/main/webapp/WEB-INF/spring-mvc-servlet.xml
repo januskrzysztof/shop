@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/security/spring-security.xsd">
 
     <context:component-scan base-package="com.shop" />
-    <mvc:annotation-driven />
+    <mvc:annotation-driven conversion-service="conversionService" />
     <mvc:default-servlet-handler />
     <security:global-method-security secured-annotations="enabled" pre-post-annotations="enabled" />
 

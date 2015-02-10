@@ -21,4 +21,9 @@ public class ProductServiceImpl implements ProductService {
     public void addProduct(Product product) throws DaoException {
         productDao.add(product);
     }
+
+    @Override
+    public Product getProduct(int id) {
+        return productDao.getProduct(id);
+    }
 }

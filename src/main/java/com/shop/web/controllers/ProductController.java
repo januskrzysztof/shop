@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -24,13 +23,36 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public ModelAndView add(ModelAndView model) {
-        return new ModelAndView("product/add", "productForm", new Product());
+    public ModelAndView add() {
+        return new ModelAndView("product/modify", "productForm", new Product());
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@Valid @ModelAttribute("productForm")Product product, BindingResult result, Model model) {
+        if (!result.hasErrors()) {
+            try {
+                productService.addProduct(product);
+                return "redirect:/product/edit/"+product.getId();
+            } catch (DaoException ex) {
+                result.addError(new ObjectError("name", "Something went wrong"));
+            }
+        }
+
         model.addAttribute("productForm", product);
-        return "product/add";
+        return "product/modify";
+    }
+
+    @RequestMapping(value = "/edit/{product}", method = RequestMethod.GET)
+    public ModelAndView edit(@PathVariable Product product) {
+        return new ModelAndView("product/modify", "productForm", product);
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String edit(
+            @PathVariable Integer id,
+            @Valid @ModelAttribute("productForm") Product product,
+            BindingResult result
+    ) {
+        return "product/modify";
     }
 }

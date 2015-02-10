@@ -1,6 +1,9 @@
 package com.shop.models;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +19,10 @@ public class Category {
     private int id;
 
     @Column(nullable = false)
+    @NotEmpty
     private String name;
 
+    @Valid
     @ManyToOne(targetEntity = Category.class)
     @JoinColumn(name = "parent", referencedColumnName = "id", nullable = true)
     private Category parent;
