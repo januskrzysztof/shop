@@ -16,8 +16,11 @@ import java.util.List;
  */
 @Repository
 public class ProductRepository implements ProductDao {
+
+
     private static final String SELECT_PRODUCTS = "from Product p";
-    private static final String SELECT_PRODUCT  = "from Product p where p.id = :id";
+    private static final String SELECT_PRODUCT = "from Product p where p.id = :id";
+    private static final String SELECT_PRODUCTS_BY_NAME = "from Product p where p.name like :name";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -30,6 +33,15 @@ public class ProductRepository implements ProductDao {
                 .createQuery(SELECT_PRODUCTS)
                 .setFirstResult(0)
                 .setMaxResults(limit)
+                .list();
+    }
+
+    @Override
+    public List<Product> findProductsByName(String name) {
+        return (List<Product>) sessionFactory
+                .openSession()
+                .createQuery(SELECT_PRODUCTS_BY_NAME)
+                .setParameter("name", "%" + name + "%")
                 .list();
     }
 
@@ -50,7 +62,7 @@ public class ProductRepository implements ProductDao {
     @Override
     public void remove(Product product) throws DaoException {
         Session session = sessionFactory.openSession();
-        Transaction tx  = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
 
         try {
             session.delete(product);
@@ -67,7 +79,7 @@ public class ProductRepository implements ProductDao {
     @Override
     public void update(Product product) throws DaoException {
         Session session = sessionFactory.openSession();
-        Transaction tx  = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
 
         try {
             session.update(product);
@@ -84,7 +96,7 @@ public class ProductRepository implements ProductDao {
     @Override
     public void add(Product product) throws DaoException {
         Session session = sessionFactory.openSession();
-        Transaction tx  = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
 
         try {
             session.save(product);
