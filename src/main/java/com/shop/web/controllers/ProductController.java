@@ -5,9 +5,12 @@ import com.shop.models.Product;
 import com.shop.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -21,27 +24,13 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add() {
-
-        Product product = new Product();
-
-        product.setName("asd");
-        product.setNetPrice(123);
-        product.setDescription("asd");
-
-
-        try {
-            productService.addProduct(product);
-        } catch (DaoException e) {
-            e.printStackTrace();
-        }
-
-
-        return "product/add";
+    public ModelAndView add(ModelAndView model) {
+        return new ModelAndView("product/add", "productForm", new Product());
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@Valid @ModelAttribute("productForm")Product product) {
+    public String add(@Valid @ModelAttribute("productForm")Product product, BindingResult result, Model model) {
+        model.addAttribute("productForm", product);
         return "product/add";
     }
 }
