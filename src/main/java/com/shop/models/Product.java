@@ -30,11 +30,9 @@ public class Product {
     @Column(name = "modified_at", nullable = false)
     private Date modifiedAt;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "products_has_categoires",
-            joinColumns        = {@JoinColumn(name = "product_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "category_id", nullable = false, updatable = false)})
-    private List<Category> categories;
+    @ManyToOne
+    @JoinColumn (name = "category_id", referencedColumnName = "id")
+    private Category category;
 
     public Product() {
         createdAt  = new Date();
@@ -65,8 +63,8 @@ public class Product {
         return modifiedAt;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public Category getCategory() {
+        return category;
     }
 
     public void setName(String name) {
@@ -89,7 +87,7 @@ public class Product {
         this.modifiedAt = modifiedAt;
     }
 
-    public void addCategory(Category category) {
-        categories.add(category);
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
