@@ -100,6 +100,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <ul class="nav nav-sidebar">
+                        <li>ADMIN DASHBOARD</li>
+                        <li class="${current == 'add' ? 'active' : ''}"><a href="/product/add">Add product</a></li>
+                        <li class="${current == 'edit' ? 'active' : ''}"><a href="/product/search">Edit product</a></li>
+                        <li class="${current == 'clients' ? 'active' : ''}"><a href="">Clients</a></li>
+                        <li class="${current == 'orders' ? 'active' : ''}"><a href="">Orders</a></li>
+                    </ul>
+                </sec:authorize>
                 <ul class="nav nav-sidebar">
                     <li>MAIN</li>
                     <li class="${current == 'search' ? 'active' : ''}"><a href="/product/search">Search products</a>

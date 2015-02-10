@@ -4,59 +4,78 @@
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
+    <!-- DEFINITION -->
     <definition name="base.definition" template="/WEB-INF/views/layout/layout.jsp">
-        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp"/>
     </definition>
 
+
+    <!-- MAIN PAGES -->
     <definition name="index" extends="base.definition">
-        <put-attribute name="title" value="Luxoft Online Shop" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/index.jsp" />
-        <put-attribute name="current" value="index" />
+        <put-attribute name="title" value="Luxoft Online Shop"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/index.jsp"/>
+        <put-attribute name="current" value="index"/>
     </definition>
 
     <definition name="registration" extends="base.definition">
-        <put-attribute name="title" value="Registration Page" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/registration.jsp" />
-        <put-attribute name="current" value="registration" />
+        <put-attribute name="title" value="Registration Page"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/registration.jsp"/>
+        <put-attribute name="current" value="registration"/>
     </definition>
-    
+
     <definition name="login" extends="base.definition">
-        <put-attribute name="title" value="Login Page" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
-        <put-attribute name="current" value="login" />
+        <put-attribute name="title" value="Login Page"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp"/>
+        <put-attribute name="current" value="login"/>
     </definition>
 
     <definition name="about" extends="base.definition">
-        <put-attribute name="title" value="About Us Page" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/about.jsp" />
-        <put-attribute name="current" value="about" />
+        <put-attribute name="title" value="About Us Page"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/about.jsp"/>
+        <put-attribute name="current" value="about"/>
     </definition>
 
     <definition name="contact" extends="base.definition">
-        <put-attribute name="title" value="Contact Page" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/contact.jsp" />
-        <put-attribute name="current" value="contact" />
+        <put-attribute name="title" value="Contact Page"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/contact.jsp"/>
+        <put-attribute name="current" value="contact"/>
     </definition>
 
     <definition name="help" extends="base.definition">
-        <put-attribute name="title" value="Help Page" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/help.jsp" />
-        <put-attribute name="current" value="help" />
+        <put-attribute name="title" value="Help Page"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/help.jsp"/>
+        <put-attribute name="current" value="help"/>
     </definition>
 
     <definition name="secured" extends="base.definition">
-        <put-attribute name="body" value="/WEB-INF/views/jsp/secured.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/secured.jsp"/>
     </definition>
 
-    <definition name="product/modify" extends="base.definition">
-        <put-attribute name="title" value="Products" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/product/modify.jsp" />
-        <put-attribute name="current" value="products" />
-    </definition>
 
+    <!-- PRODUCT PAGES -->
     <definition name="product/search" extends="base.definition">
-        <put-attribute name="title" value="Products search" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/product/search.jsp" />
-        <put-attribute name="current" value="productssearch" />
+        <put-attribute name="title" value="Products search"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/product/search.jsp"/>
+        <put-attribute name="current" value="search"/>
+    </definition>
+
+
+    <!-- ADMIN PAGES -->
+    <definition name="product/add" extends="base.definition">
+        <put-attribute name="title" value="Products"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/product/add.jsp"/>
+        <put-attribute name="current" value="add"/>
+    </definition>
+
+    <definition name="product/edit" extends="base.definition">
+        <put-attribute name="title" value="Products"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/product/edit.jsp"/>
+        <put-attribute name="current" value="edit"/>
+    </definition>
+
+    <definition name="admin" extends="base.definition">
+        <put-attribute name="title" value="Admin Dashboard"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/admin.jsp"/>
+        <put-attribute name="current" value="admin"/>
     </definition>
 </tiles-definitions>

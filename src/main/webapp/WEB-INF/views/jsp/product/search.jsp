@@ -25,6 +25,9 @@
         <th>Photo</th>
         <th>Product name</th>
         <th>Price</th>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <th>Admin Action</th>
+        </sec:authorize>
     </tr>
     </thead>
     <tbody>
@@ -33,6 +36,16 @@
             <td>Foto not available yet</td>
             <td><a href="product/detail/${product.id}">${product.name}</a></td>
             <td>${product.netPrice}</td>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <td>
+                    <a href="edit/${product.id}">
+                        <button type="button" class="btn btn-primary btn-xs">Edit</button>
+                    </a>
+                    <a href="">
+                        <button type="button" class="btn btn-primary btn-xs btn-danger">Remove</button>
+                    </a>
+                </td>
+            </sec:authorize>
         </tr>
     </c:forEach>
     </tbody>

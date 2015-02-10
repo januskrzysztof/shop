@@ -24,7 +24,7 @@ public class ProductController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView add() {
-        return new ModelAndView("product/modify", "productForm", new Product());
+        return new ModelAndView("product/add", "productForm", new Product());
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -39,12 +39,12 @@ public class ProductController {
         }
 
         model.addAttribute("productForm", product);
-        return "product/modify";
+        return "product/add";
     }
 
     @RequestMapping(value = "/edit/{product}", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable Product product) {
-        return new ModelAndView("product/modify", "productForm", product);
+        return new ModelAndView("product/edit", "productForm", product);
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
@@ -58,6 +58,6 @@ public class ProductController {
             }
         }
 
-        return "product/modify";
+        return "product/edit";
     }
 }

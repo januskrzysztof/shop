@@ -26,7 +26,7 @@
                 login-page="/login"
                 username-parameter="username"
                 password-parameter="password" />
-        <security:anonymous enabled="false" />
+        <security:anonymous enabled="true" />
         <security:csrf />
         <security:logout logout-url="/logout" logout-success-url="/" />
     </security:http>
