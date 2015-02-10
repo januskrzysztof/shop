@@ -1,7 +1,6 @@
 package com.shop.web.controllers;
 
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +18,15 @@ public class IndexController {
         model.setViewName("index");
         return model;
     }
+
+    @RequestMapping(value = "/contact")
+    public void showContact() {}
+
+    @RequestMapping(value = "/about")
+    public void showAbout() {}
+
+    @RequestMapping(value = "/help")
+    public void showHelp() {}
 
     /**
      * Secured area

@@ -117,17 +117,17 @@
                 <ul class="nav nav-sidebar">
                     <li>CATEGORIES</li>
                     <li class="${current == 'top' ? 'active' : ''}"><a href="#">Top sales</a></li>
-                    <li class="${current == 'books' ? 'active' : ''}"><a href="#">Books</a></li>
-                    <li class="${current == 'ebooks' ? 'active' : ''}"><a href="#">E-books</a></li>
-                    <li class="${current == 'music' ? 'active' : ''}"><a href="#">Music</a></li>
-                    <li class="${current == 'movies' ? 'active' : ''}"><a href="#">Movies</a></li>
-                    <li class="${current == 'games' ? 'active' : ''}"><a href="#">Games</a></li>
+                    <li class="${current == 'books' ? 'active' : ''}"><a href="/categories/books">Books</a></li>
+                    <li class="${current == 'ebooks' ? 'active' : ''}"><a href="/categories/e-books">E-books</a></li>
+                    <li class="${current == 'music' ? 'active' : ''}"><a href="/categories/music">Music</a></li>
+                    <li class="${current == 'movies' ? 'active' : ''}"><a href="/categories/movies">Movies</a></li>
+                    <li class="${current == 'games' ? 'active' : ''}"><a href="/categories/games">Games</a></li>
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li>OTHER</li>
-                    <li class="${current == 'contact' ? 'active' : ''}"><a href="">Contact</a></li>
-                    <li class="${current == 'help' ? 'active' : ''}"><a href="">Help</a></li>
-                    <li class="${current == 'about' ? 'active' : ''}"><a href="">About us</a></li>
+                    <li class="${current == 'contact' ? 'active' : ''}"><a href="/contact">Contact</a></li>
+                    <li class="${current == 'help' ? 'active' : ''}"><a href="/help">Help</a></li>
+                    <li class="${current == 'about' ? 'active' : ''}"><a href="/about">About us</a></li>
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

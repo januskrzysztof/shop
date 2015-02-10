@@ -62,13 +62,13 @@
 
     <!-- ADMIN PAGES -->
     <definition name="product/add" extends="base.definition">
-        <put-attribute name="title" value="Products"/>
+        <put-attribute name="title" value="Add Product"/>
         <put-attribute name="body" value="/WEB-INF/views/jsp/product/add.jsp"/>
         <put-attribute name="current" value="add"/>
     </definition>
 
     <definition name="product/edit" extends="base.definition">
-        <put-attribute name="title" value="Products"/>
+        <put-attribute name="title" value="Edit Product"/>
         <put-attribute name="body" value="/WEB-INF/views/jsp/product/edit.jsp"/>
         <put-attribute name="current" value="edit"/>
     </definition>
@@ -78,4 +78,37 @@
         <put-attribute name="body" value="/WEB-INF/views/jsp/admin.jsp"/>
         <put-attribute name="current" value="admin"/>
     </definition>
+
+
+    <!-- CATEGORIES -->
+    <definition name="categories/books" extends="base.definition">
+        <put-attribute name="title" value="Books"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/categories/books.jsp"/>
+        <put-attribute name="current" value="books"/>
+    </definition>
+
+    <definition name="categories/e-books" extends="base.definition">
+        <put-attribute name="title" value="E-books"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/categories/e-books.jsp"/>
+        <put-attribute name="current" value="e-books"/>
+    </definition>
+
+    <definition name="categories/music" extends="base.definition">
+        <put-attribute name="title" value="Music"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/categories/music.jsp"/>
+        <put-attribute name="current" value="music"/>
+    </definition>
+
+    <definition name="categories/movies" extends="base.definition">
+        <put-attribute name="title" value="Movies"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/categories/movies.jsp"/>
+        <put-attribute name="current" value="movies"/>
+    </definition>
+
+    <definition name="categories/games" extends="base.definition">
+        <put-attribute name="title" value="Games"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/categories/games.jsp"/>
+        <put-attribute name="current" value="games"/>
+    </definition>
+
 </tiles-definitions>

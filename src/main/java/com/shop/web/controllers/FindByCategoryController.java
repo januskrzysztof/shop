@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,14 +36,12 @@ public class FindByCategoryController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView searchCategory(@ModelAttribute("categoryName") String categoryName ,ModelAndView model,SessionStatus status) {
-        //initialize();
+//        initialize();
         List<Product> productsInCategory = productDao.findProductsByCategory(categoryName);
         model.addObject("productsInCategory", productsInCategory);
 
         return model;
     }
-
-
 
     private void initialize() {
         List<Product> products = new ArrayList<>();
