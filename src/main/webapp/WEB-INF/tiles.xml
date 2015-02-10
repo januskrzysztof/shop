@@ -48,7 +48,7 @@
         <put-attribute name="body" value="/WEB-INF/views/jsp/secured.jsp" />
     </definition>
 
-    <definition name="product/add" extends="base.definition">
+    <definition name="product/modify" extends="base.definition">
         <put-attribute name="title" value="Products" />
         <put-attribute name="body" value="/WEB-INF/views/jsp/product/modify.jsp" />
         <put-attribute name="current" value="products" />

@@ -82,7 +82,7 @@ public class ProductRepository implements ProductDao {
         Transaction tx = session.beginTransaction();
 
         try {
-            session.update(product);
+            session.saveOrUpdate(product);
             session.flush();
             tx.commit();
         } catch (Exception ex) {

@@ -48,11 +48,16 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public String edit(
-            @PathVariable Integer id,
-            @Valid @ModelAttribute("productForm") Product product,
-            BindingResult result
-    ) {
+    public String edit(@PathVariable int id, @Valid @ModelAttribute("productForm") Product product, BindingResult result) {
+        if (!result.hasErrors()) {
+            try {
+                product.setId(id);
+                productService.updateProduct(product);
+            } catch (DaoException e) {
+                result.addError(new ObjectError("", "Something went wrong"));
+            }
+        }
+
         return "product/modify";
     }
 }

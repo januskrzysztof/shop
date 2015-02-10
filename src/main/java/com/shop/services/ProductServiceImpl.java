@@ -23,6 +23,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public void updateProduct(Product product) throws DaoException {
+        productDao.update(product);
+    }
+
+    @Override
     public Product getProduct(int id) {
         return productDao.getProduct(id);
     }

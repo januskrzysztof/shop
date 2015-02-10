@@ -37,7 +37,7 @@ public class Product {
     private Date modifiedAt;
 
     @Valid
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "category_id", referencedColumnName = "id")
     private Category category;
 
@@ -48,6 +48,10 @@ public class Product {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -96,5 +100,35 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        if (id != product.id) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", netPrice=" + netPrice +
+                ", description='" + description + '\'' +
+                ", createdAt=" + createdAt +
+                ", modifiedAt=" + modifiedAt +
+                ", category=" + category +
+                '}';
     }
 }
