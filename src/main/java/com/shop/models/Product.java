@@ -1,8 +1,12 @@
 package com.shop.models;
 
+import com.shop.validator.Price;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Krzysztof Januś on 2015-02-02.
@@ -16,9 +20,11 @@ public class Product {
     private int id;
 
     @Column(nullable = false, length = 255)
+    @NotEmpty(message = "Category name cannot be empty")
     private String name;
 
     @Column(name = "net_price", nullable = false, columnDefinition = "DECIMAL(11,4) default '0.000'", precision = 11, scale = 4)
+    @Price
     private double netPrice;
 
     @Column
@@ -30,6 +36,7 @@ public class Product {
     @Column(name = "modified_at", nullable = false)
     private Date modifiedAt;
 
+    @Valid
     @ManyToOne
     @JoinColumn (name = "category_id", referencedColumnName = "id")
     private Category category;
