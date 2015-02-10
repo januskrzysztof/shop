@@ -1,11 +1,10 @@
 package com.shop.web.controllers;
 
-        import com.shop.dao.ProductDao;
-import com.shop.dao.repository.ProductRepository;
+import com.shop.dao.ProductDao;
 import com.shop.exceptions.DaoException;
 import com.shop.models.Product;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,24 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/searchProducts")
+@RequestMapping("/product/search")
 public class FindProductsController{
     @Autowired
     ProductDao productDao;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView searchProduct(){
+    public void searchProduct(){
 
-        ModelAndView model = new ModelAndView("searchProducts");
-        model.addObject("productName","");
-        return model;
     }
-
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView searchProduct(@ModelAttribute("productName") String productName ,ModelAndView model, SessionStatus status){
         //uncomment for test data
-       // initialize();
+//       initialize();
 
         List<Product> products = productDao.findProductsByName(productName);
         System.out.println(products);
