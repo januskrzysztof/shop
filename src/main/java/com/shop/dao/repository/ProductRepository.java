@@ -2,6 +2,7 @@ package com.shop.dao.repository;
 
 import com.shop.dao.ProductDao;
 import com.shop.exceptions.DaoException;
+import com.shop.models.Category;
 import com.shop.models.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,7 +21,10 @@ public class ProductRepository implements ProductDao {
 
     private static final String SELECT_PRODUCTS = "from Product p";
     private static final String SELECT_PRODUCT = "from Product p where p.id = :id";
-    private static final String SELECT_PRODUCTS_BY_NAME = "from Product p where p.name like :name";
+    private static final String SELECT_PRODUCTS_BY_NAME = "from Product p where p.name like :name ";
+   // private static final String SELECT_PRODUCTS_BY_CATEGORY = "from Product p join p.category as c where c.name = :name";
+    private static final String GET_CATEGORY_ID = "from Category c where c.name = :name";
+    private static final String SELECT_PRODUCTS_BY_CATEGORY_ID = "from Product p where p.category = :c";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -38,10 +42,28 @@ public class ProductRepository implements ProductDao {
 
     @Override
     public List<Product> findProductsByName(String name) {
-        return (List<Product>) sessionFactory
+       if(!name.isEmpty()) {
+           return (List<Product>) sessionFactory
+                   .openSession()
+                   .createQuery(SELECT_PRODUCTS_BY_NAME)
+                   .setParameter("name", "%" + name + "%")
+                   .list();
+       }
+        return null;
+    }
+
+    @Override
+    public List<Product> findProductsByCategory(String categoryName) {
+     List<Category> categories =(List<Category>)sessionFactory.openSession()
+                .createQuery(GET_CATEGORY_ID).setParameter("name",categoryName).list();
+        Category c = null;
+       if(categories.size()>0) {
+          c = categories.get(0);
+       }
+        return (List<Product>)  sessionFactory
                 .openSession()
-                .createQuery(SELECT_PRODUCTS_BY_NAME)
-                .setParameter("name", "%" + name + "%")
+                .createQuery(SELECT_PRODUCTS_BY_CATEGORY_ID)
+                .setParameter("c", c)
                 .list();
     }
 
