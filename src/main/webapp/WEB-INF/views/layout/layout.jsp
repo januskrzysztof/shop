@@ -22,7 +22,7 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <%@ include file="taglib.jsp" %>
-    <title><tiles:getAsString name="title"/></title>
+    <title><tiles:getAsString name="title" defaultValue="" /></title>
 </head>
 <body>
 
