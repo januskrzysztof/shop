@@ -41,7 +41,7 @@
                     <a href="/product/edit/${product.id}">
                         <button type="button" class="btn btn-primary btn-xs">Edit</button>
                     </a>
-                    <a href="">
+                    <a href="/product/remove/${product.id}">
                         <button type="button" class="btn btn-primary btn-xs btn-danger">Remove</button>
                     </a>
                 </td>

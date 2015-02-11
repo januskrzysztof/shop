@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 /**
@@ -42,11 +43,11 @@ public class ProductController {
         return "product/add";
     }
 
-    @RequestMapping(value = "/remove", method = RequestMethod.GET)
-    public ModelAndView remove(@PathVariable int id) {
+    @RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
+    public String remove(@PathVariable int id, HttpServletRequest request) {
         Product product = productService.getProduct(id);
         productService.removeProduct(product);
-        return new ModelAndView("product/remove");
+		return redirect(request);
     }
 
     @RequestMapping(value = "/edit/{product}", method = RequestMethod.GET)
@@ -75,4 +76,9 @@ public class ProductController {
         model.addObject("product", product);
         return model;
     }
+
+	private String redirect(HttpServletRequest request) {
+		String referer = request.getHeader("Referer");
+		return  "redirect:"+(referer == null ? "/" : referer);
+	}
 }

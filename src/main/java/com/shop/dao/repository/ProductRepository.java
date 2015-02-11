@@ -89,14 +89,17 @@ public class ProductRepository implements ProductDao {
 
     @Override
     public Product getProduct(int id) {
-        List result = sessionFactory
-                .openSession()
-                .createQuery(SELECT_PRODUCT)
-                .setParameter("id", id)
-                .list();
-
-        if (result.size() > 0) {
-            return (Product) result.get(0);
+        Session session = sessionFactory.openSession();
+        try {
+            List result = session
+                    .createQuery(SELECT_PRODUCT)
+                    .setParameter("id", id)
+                    .list();
+            if (result.size() > 0) {
+                return (Product) result.get(0);
+            }
+        } finally {
+            session.close();
         }
         return null;
     }
