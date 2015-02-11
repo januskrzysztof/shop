@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "categories")
-public class Category {
+public class Category implements Serializable {
     @Id
     @GeneratedValue
     @Column

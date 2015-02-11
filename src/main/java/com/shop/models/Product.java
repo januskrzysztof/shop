@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue
     @Column

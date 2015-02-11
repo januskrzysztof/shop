@@ -111,4 +111,10 @@
         <put-attribute name="current" value="games"/>
     </definition>
 
+
+    <definition name="cart/checkout" extends="base.definition">
+        <put-attribute name="title" value="Checkout" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/product/search.jsp" />
+        <put-attribute name="current" value="checkout" />
+    </definition>
 </tiles-definitions>

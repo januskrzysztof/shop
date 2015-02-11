@@ -4,6 +4,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,8 +50,11 @@ public class AuthenticateController {
     public String logout() {
         Authentication authentication = context.getAuthentication();
         if (authentication != null) {
+            authentication.setAuthenticated(false);
             SecurityContextHolder.clearContext();
         }
+
+        SecurityContextHolder.setContext(new SecurityContextImpl());
 
         return "redirect:/login";
     }
