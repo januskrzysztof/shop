@@ -69,6 +69,14 @@
                             <div class="form-group">
                                 <label for="productName" style="color:darkgrey">Search</label>
                                 <input type="text" class="form-control" id="productName" name="productName">
+                                <select class="form-control" id="categoryName" name="categoryName">
+                                    <option value="all">All</option>
+                                    <option value="books">Books</option>
+                                    <option value="e-books">E-books</option>
+                                    <option value="music">Music</option>
+                                    <option value="video">Video</option>
+                                    <option value="games">Games</option>
+                                </select>
                             </div>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <button type="submit" class="btn btn-default">

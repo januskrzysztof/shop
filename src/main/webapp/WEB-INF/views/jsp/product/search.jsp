@@ -8,6 +8,14 @@
     <div class="form-group">
         <label for="productName">Search</label>
         <input type="text" class="form-control" id="productName" name="productName" placeholder="key words">
+        <select class="form-control" id="categoryName" name="categoryName">
+            <option value="All">All</option>
+            <option value="Books">Books</option>
+            <option value="E-books">E-books</option>
+            <option value="Music">Music</option>
+            <option value="Video">Video</option>
+            <option value="Games">Games</option>
+        </select>
     </div>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <button type="submit" class="btn btn-default">
@@ -17,7 +25,7 @@
 
 <br><br>
 
-<div class="row"><h2>Results for: ${productName}</h2></div>
+<div class="row"><h2>Results for: ${productName} in category ${categoryName}</h2></div>
 
 <table class="table table-hover">
     <thead>

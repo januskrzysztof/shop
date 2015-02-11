@@ -11,9 +11,10 @@
         <div class="form-group">
             <label for="productName">Search in ${categoryName}</label>
             <input type="text" class="form-control" id="productName" name="productName">
+            <input type="hidden" id="categoryName" name="categoryName" value="${categoryName}">
         </div>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <button type="submit" class="btn btn-default">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <button type="submit" class="btn btn-default">
             <span class="glyphicon glyphicon-search"></span>
         </button>
     </form>

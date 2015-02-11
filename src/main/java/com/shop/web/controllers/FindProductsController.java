@@ -16,43 +16,51 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/product/search")
-public class FindProductsController{
-    @Autowired
-    ProductDao productDao;
+public class FindProductsController {
+	@Autowired
+	ProductDao productDao;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public void searchProduct(){
+	@RequestMapping(method = RequestMethod.GET)
+	public void searchProduct() {
 
-    }
+	}
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView searchProduct(@ModelAttribute("productName") String productName ,ModelAndView model, SessionStatus status){
-        //uncomment for test data
+	@RequestMapping(method = RequestMethod.POST)
+	public ModelAndView searchProduct(@ModelAttribute("productName") String productName, @ModelAttribute
+			("categoryName") String categoryName, ModelAndView model,
+									  SessionStatus status) {
+		//uncomment for test data
 //       initialize();
+		List<Product> products;
 
-        List<Product> products = productDao.findProductsByName(productName);
-        model.addObject("products",products);
-        return model;
-    }
+		if ("all".equals(categoryName)) {
+			products = productDao.findProductsByName(productName);
+		} else {
+			products = productDao.findProductsInCategory(categoryName, productName);
+		}
+
+		model.addObject("products", products);
+		return model;
+	}
 
 
-    private void initialize() {
-        List<Product> products = new ArrayList<>();
-        Product p = new Product();
-        Product p1 = new Product();
-        p.setName("Book1");
-        p.setNetPrice(124);
-        p1.setName("Book2");
-        p1.setNetPrice(321);
-       // ProductDao productDao = new ProductRepository();
-        products.add(p);
-        products.add(p1);
-        try {
-            productDao.add(p);
-            productDao.add(p1);
-        } catch (DaoException e) {
-            e.printStackTrace();
-        }
-    }
+	private void initialize() {
+		List<Product> products = new ArrayList<>();
+		Product p = new Product();
+		Product p1 = new Product();
+		p.setName("Book1");
+		p.setNetPrice(124);
+		p1.setName("Book2");
+		p1.setNetPrice(321);
+		// ProductDao productDao = new ProductRepository();
+		products.add(p);
+		products.add(p1);
+		try {
+			productDao.add(p);
+			productDao.add(p1);
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
