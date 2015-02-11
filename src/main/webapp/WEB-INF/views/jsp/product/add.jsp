@@ -9,6 +9,19 @@
     <legend>Add product</legend>
 
     <div class="form-group">
+      <label for="name" class="col-lg-2 control-label">Category</label>
+
+      <div class="col-lg-4">
+        <form:input id="name" path="name" cssClass="form-control" placeholder="Product name"/>
+        <div>
+          <form:errors path="name">
+            <div class="alert alert-danger"><form:errors path="name" htmlEscape="false"/></div>
+          </form:errors>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="name" class="col-lg-2 control-label">Product name</label>
 
       <div class="col-lg-4">

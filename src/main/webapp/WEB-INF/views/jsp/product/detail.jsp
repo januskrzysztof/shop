@@ -1,18 +1,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <div class="row placeholders">
-    <div class="col-md-4">
+    <div class="col-md-2">
         <img src="" class="img-responsive" alt="Product image">
     </div>
-    <div class="col-md-4">
-        <h4>Title: ${product.name}</h4>
-
-        <h2>Description: ${product.description}</h2>
+    <div class="col-md-8">
+        <h2>${product.name}</h2>
+        <p>Description: ${product.description}</p>
     </div>
-    <div class="col-md-4">
-        <a href="product/search">
-            <button type="button" class="btn btn-primary btn-lg">Orders</button>
-        </a>
-        <h4>Orders</h4>
+    <div class="col-md-2">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th colspan="2" align="center">BUY</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Price: </td>
+                <td>${product.netPrice}</td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">Larry</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
