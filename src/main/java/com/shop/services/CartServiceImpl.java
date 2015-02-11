@@ -1,7 +1,6 @@
 package com.shop.services;
 
-import com.shop.models.Cart;
-import com.shop.models.Product;
+import com.shop.models.*;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
@@ -12,26 +11,57 @@ import javax.servlet.http.HttpSession;
 @Service
 public class CartServiceImpl implements CartService {
     private static final String CART_SESSION_ID = "cart";
+    private HttpSession session;
 
-    public void addProductToCart(Product product, HttpSession session) {
-        Cart cart = getCart(session);
-        cart.addProduct(product);
-
-        session.setAttribute(CART_SESSION_ID, cart);
+    @Override
+    public void addProductToCart(Product product) {
+        getCart().addProduct(product);
+        save();
     }
 
-    public boolean hasProductInCartAlready(Product product, HttpSession session) {
-        return getCart(session).hasProduct(product);
+    public void removeProductFromCart(Product product) {
+        getCart().removeProduct(product);
+        save();
     }
 
-    public Cart getCart(HttpSession session) {
+    public void setProductQuantity(Product product, int quantity) {
+        getCart().setCartProductQuantity(product, quantity);
+        save();
+    }
+
+    public void clearCart() {
+        getCart().clear();
+        save();
+    }
+
+    @Override
+    public Cart getCart() {
+        checkSession();
+
         Cart cart;
         if (session.getAttribute(CART_SESSION_ID) instanceof Cart) {
             cart = (Cart) session.getAttribute(CART_SESSION_ID);
         } else {
             cart = new Cart();
+            session.setAttribute(CART_SESSION_ID, cart);
         }
 
         return cart;
+    }
+
+    public CartServiceImpl setSession(HttpSession session) {
+        this.session = session;
+        return this;
+    }
+
+    private void save() {
+        checkSession();
+        session.setAttribute(CART_SESSION_ID, getCart());
+    }
+
+    private void checkSession() {
+        if (session == null) {
+            throw new IllegalStateException("Session was not set.");
+        }
     }
 }
