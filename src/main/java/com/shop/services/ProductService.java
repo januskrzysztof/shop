@@ -10,4 +10,5 @@ public interface ProductService {
     public void addProduct(Product product) throws DaoException;
     public void updateProduct(Product product) throws DaoException;
     public Product getProduct(int id);
+    public void removeProduct(Product product);
 }

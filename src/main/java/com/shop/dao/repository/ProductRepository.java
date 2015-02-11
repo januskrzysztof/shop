@@ -23,8 +23,9 @@ public class ProductRepository implements ProductDao {
     private static final String SELECT_PRODUCT = "from Product p where p.id = :id";
     private static final String SELECT_PRODUCTS_BY_NAME = "from Product p where p.name like :name ";
    // private static final String SELECT_PRODUCTS_BY_CATEGORY = "from Product p join p.category as c where c.name = :name";
-    private static final String GET_CATEGORY_ID = "from Category c where c.name = :name";
+    private static final String GET_CATEGORY_BY_NAME = "from Category c where c.name = :name";
     private static final String SELECT_PRODUCTS_BY_CATEGORY_ID = "from Product p where p.category = :c";
+    private static final String SELECT_PRODUCTS_IN_CATEGORY = "from Product p where p.category = :c and p.name like :name ";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -55,7 +56,7 @@ public class ProductRepository implements ProductDao {
     @Override
     public List<Product> findProductsByCategory(String categoryName) {
      List<Category> categories =(List<Category>)sessionFactory.openSession()
-                .createQuery(GET_CATEGORY_ID).setParameter("name",categoryName).list();
+                .createQuery(GET_CATEGORY_BY_NAME).setParameter("name",categoryName).list();
         Category c = null;
        if(categories.size()>0) {
           c = categories.get(0);
@@ -64,6 +65,25 @@ public class ProductRepository implements ProductDao {
                 .openSession()
                 .createQuery(SELECT_PRODUCTS_BY_CATEGORY_ID)
                 .setParameter("c", c)
+                .list();
+    }
+
+    @Override
+    public List<Product> findProductsInCategory(String categoryName, String productName) {
+        List<Category> categories =(List<Category>)sessionFactory.openSession()
+                .createQuery(GET_CATEGORY_BY_NAME).setParameter("name",categoryName).list();
+        Category c = null;
+        if(categories.size()>0) {
+            c = categories.get(0);
+        } else {
+            return null;
+        }
+
+        return (List<Product>) sessionFactory
+                .openSession()
+                .createQuery(SELECT_PRODUCTS_IN_CATEGORY)
+                .setParameter("c",c)
+                .setParameter("name",productName)
                 .list();
     }
 

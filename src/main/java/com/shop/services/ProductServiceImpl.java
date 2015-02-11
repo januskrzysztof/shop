@@ -31,4 +31,13 @@ public class ProductServiceImpl implements ProductService {
     public Product getProduct(int id) {
         return productDao.getProduct(id);
     }
+
+    @Override
+    public void removeProduct (Product product) {
+        try {
+            productDao.remove(product);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -12,6 +12,8 @@ public interface ProductDao {
     public List<Product> findProductsByName(String name);
     public List<Product> getProducts(int offset, int limit);
     public List<Product> findProductsByCategory(String categoryName);
+    public List<Product> findProductsInCategory(String categoryName, String productName);
+
     public Product getProduct(int id);
     public void remove(Product product) throws DaoException;
     public void update(Product product) throws DaoException;
