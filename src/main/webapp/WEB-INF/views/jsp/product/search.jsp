@@ -4,17 +4,17 @@
 
 <div class="row"><h2>Search for products</h2></div>
 
-<form class="form-inline" action="/product/search" method="post">
+<form class="navbar-form" action="/product/search" method="post">
     <div class="form-group">
-        <label for="productName">Search</label>
-        <input type="text" class="form-control" id="productName" name="productName" placeholder="key words">
+        <label for="productName" style="color:darkgrey">Search</label>
+        <input type="text" class="form-control" id="productName" name="productName">
         <select class="form-control" id="categoryName" name="categoryName">
-            <option value="All">All</option>
-            <option value="Books">Books</option>
-            <option value="E-books">E-books</option>
-            <option value="Music">Music</option>
-            <option value="Video">Video</option>
-            <option value="Games">Games</option>
+            <option value="all">All</option>
+            <option value="books">Books</option>
+            <option value="e-books">E-books</option>
+            <option value="music">Music</option>
+            <option value="video">Video</option>
+            <option value="games">Games</option>
         </select>
     </div>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -41,7 +41,7 @@
     <tbody>
     <c:forEach var="product" items="${products}">
         <tr>
-            <td>Foto not available yet</td>
+            <td><img src="" class="img-responsive" alt="Product image"></td>
             <td><a href="/product/detail/${product.id}">${product.name}</a></td>
             <td>${product.netPrice}</td>
             <sec:authorize access="hasRole('ROLE_ADMIN')">

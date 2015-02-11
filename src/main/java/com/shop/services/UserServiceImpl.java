@@ -14,38 +14,48 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    private UserDao userDao;
-    private RoleDao roleDao;
-    private PasswordEncoder passwordEncoder;
+	private UserDao userDao;
+	private RoleDao roleDao;
+	private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    public UserServiceImpl(UserDao userDao, RoleDao roleDao) {
-        this.userDao = userDao;
-        this.roleDao = roleDao;
-    }
+	@Autowired
+	public UserServiceImpl(UserDao userDao, RoleDao roleDao) {
+		this.userDao = userDao;
+		this.roleDao = roleDao;
+	}
 
-    @Override
-    public void registerUser(User user) throws DaoException {
-        if (passwordEncoder != null) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-        }
+	@Override
+	public void registerUser(User user) throws DaoException {
+		if (passwordEncoder != null) {
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+		}
 
-        Role role = roleDao.getRoleByName("ROLE_MEMBER");
-        if (role == null) {
-            throw new DaoException("Role cannot be null");
-        }
+		Role role = roleDao.getRoleByName("ROLE_MEMBER");
+		if (role == null) {
+			throw new DaoException("Role cannot be null");
+		}
 
-        user.setRole(role);
-        user.setEnabled(true);
-        userDao.add(user);
-    }
+		user.setRole(role);
+		user.setEnabled(true);
+		userDao.add(user);
+	}
 
-    @Override
-    public User findUserByUsername(String username) {
-        return userDao.findUserByUsername(username);
-    }
+	@Override
+	public User findUserByUsername(String username) {
+		return userDao.findUserByUsername(username);
+	}
 
-    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
+	@Override
+	public User getUser(int id) {
+		return userDao.getUser(id);
+	}
+
+	@Override
+	public void update(User user) throws DaoException {
+		userDao.update(user);
+	}
+
+	public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+		this.passwordEncoder = passwordEncoder;
+	}
 }

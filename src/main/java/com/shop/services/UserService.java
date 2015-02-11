@@ -9,4 +9,6 @@ import com.shop.models.User;
 public interface UserService {
     public void registerUser(User user) throws DaoException;
     public User findUserByUsername(String username);
+    public User getUser(int id);
+    public void update(User user) throws DaoException;
 }

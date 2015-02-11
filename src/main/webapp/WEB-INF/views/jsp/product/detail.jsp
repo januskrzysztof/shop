@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@ include file="../../layout/taglib.jsp" %>
+
 <div class="row placeholders">
     <div class="col-md-2">
         <img src="" class="img-responsive" alt="Product image">
@@ -13,7 +15,7 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <td colspan="2" align="center"><b>BUY </b><span class="glyphicon glyphicon-shopping-cart"></td>
+                <td colspan="2" align="center"><b>BUY </b><span class="glyphicon glyphicon-shopping-cart"></span></td>
             </tr>
             </thead>
             <tbody>
@@ -25,16 +27,16 @@
                 <td>Quantity</td>
                 <td>
                     <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select>
                 </td>
             </tr>
@@ -48,4 +50,16 @@
             </tbody>
         </table>
     </div>
+
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <td>
+            <a href="/product/edit/${product.id}">
+                <button type="button" class="btn btn-primary">Edit</button>
+            </a>
+            <a href="/product/remove/${product.id}">
+                <button type="button" class="btn btn-primary btn-danger">Remove</button>
+            </a>
+        </td>
+    </sec:authorize>
+
 </div>

@@ -18,6 +18,7 @@ public class ProductServiceImpl implements ProductService {
         this.productDao = productDao;
     }
 
+    @Override
     public void addProduct(Product product) throws DaoException {
         productDao.add(product);
     }

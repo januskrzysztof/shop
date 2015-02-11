@@ -126,7 +126,7 @@
                     <li>CATEGORIES</li>
                     <li class="${current == 'top' ? 'active' : ''}"><a href="#">Top sales</a></li>
                     <li class="${current == 'books' ? 'active' : ''}"><a href="/categories/books">Books</a></li>
-                    <li class="${current == 'ebooks' ? 'active' : ''}"><a href="/categories/e-books">E-books</a></li>
+                    <li class="${current == 'e-books' ? 'active' : ''}"><a href="/categories/e-books">E-books</a></li>
                     <li class="${current == 'music' ? 'active' : ''}"><a href="/categories/music">Music</a></li>
                     <li class="${current == 'movies' ? 'active' : ''}"><a href="/categories/movies">Movies</a></li>
                     <li class="${current == 'games' ? 'active' : ''}"><a href="/categories/games">Games</a></li>

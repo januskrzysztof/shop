@@ -11,6 +11,7 @@ import java.util.List;
 public interface CategoryDao {
     public List<Category> getCategories(int offset, int limit);
     public Category getCategory(int id);
+    public Category getCategoryByName(String name);
     public void remove(Category category) throws DaoException;
     public void update(Category category) throws DaoException;
     public void add(Category category) throws DaoException;

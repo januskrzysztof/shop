@@ -18,6 +18,8 @@ import java.util.List;
 public class CategoryRepository implements CategoryDao {
     private static final String SELECT_CATEGORIES     = "from Category c";
     private static final String SELECT_CATEGORY_BY_ID = "from Category c where c.id = :id";
+    private static final String GET_CATEGORY_BY_NAME = "from Category c where c.name = :name";
+
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -46,6 +48,17 @@ public class CategoryRepository implements CategoryDao {
             return (Category) result.get(0);
         }
         return null;
+    }
+
+    @Override
+    public Category getCategoryByName(String name) {
+        List<Category> categories = (List<Category>) sessionFactory.openSession()
+                .createQuery(GET_CATEGORY_BY_NAME).setParameter("name", name).list();
+        if (categories.size() == 1) {
+            return categories.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Override

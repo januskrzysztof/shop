@@ -9,10 +9,16 @@
         <legend>Add product</legend>
 
         <div class="form-group">
-            <label for="name" class="col-lg-2 control-label">Category</label>
+            <label for="categoryName" class="col-lg-2 control-label">Category</label>
 
             <div class="col-lg-4">
-
+                <select class="form-control" id="categoryName" name="categoryName">
+                    <option value="books">Books</option>
+                    <option value="e-books">E-books</option>
+                    <option value="music">Music</option>
+                    <option value="video">Video</option>
+                    <option value="games">Games</option>
+                </select>
             </div>
         </div>
 
