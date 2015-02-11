@@ -28,11 +28,11 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@Valid @ModelAttribute("productForm")Product product, BindingResult result, Model model) {
+    public String add(@Valid @ModelAttribute("productForm") Product product, BindingResult result, Model model) {
         if (!result.hasErrors()) {
             try {
                 productService.addProduct(product);
-                return "redirect:/product/edit/"+product.getId();
+                return "redirect:/product/edit/" + product.getId();
             } catch (DaoException ex) {
                 result.addError(new ObjectError("name", "Something went wrong"));
             }
@@ -40,6 +40,13 @@ public class ProductController {
 
         model.addAttribute("productForm", product);
         return "product/add";
+    }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.GET)
+    public ModelAndView remove(@PathVariable int id) {
+        Product product = productService.getProduct(id);
+        productService.removeProduct(product);
+        return new ModelAndView("product/remove");
     }
 
     @RequestMapping(value = "/edit/{product}", method = RequestMethod.GET)
