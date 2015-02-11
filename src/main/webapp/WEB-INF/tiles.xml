@@ -59,6 +59,12 @@
         <put-attribute name="current" value="search"/>
     </definition>
 
+    <definition name="product/detail" extends="base.definition">
+        <put-attribute name="title" value="Product details"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/product/detail.jsp"/>
+        <put-attribute name="current" value="details"/>
+    </definition>
+
 
     <!-- ADMIN PAGES -->
     <definition name="product/add" extends="base.definition">

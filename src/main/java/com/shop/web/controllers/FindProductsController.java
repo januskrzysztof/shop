@@ -47,13 +47,9 @@ public class FindProductsController{
        // ProductDao productDao = new ProductRepository();
         products.add(p);
         products.add(p1);
-        Product p2 = new Product();
-        p2.setName("Book3");
-        p2.setNetPrice(125);
         try {
             productDao.add(p);
             productDao.add(p1);
-            productDao.add(p2);
         } catch (DaoException e) {
             e.printStackTrace();
         }

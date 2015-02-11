@@ -60,4 +60,12 @@ public class ProductController {
 
         return "product/edit";
     }
+
+    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+    public ModelAndView detail(@PathVariable int id) {
+        Product product = productService.getProduct(id);
+        ModelAndView model = new ModelAndView("product/detail");
+        model.addObject("product", product);
+        return model;
+    }
 }

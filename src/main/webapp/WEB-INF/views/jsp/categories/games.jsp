@@ -34,11 +34,11 @@
     <c:forEach var="product" items="${productsInCategory}">
         <tr>
             <td>Foto not available yet</td>
-            <td><a href="product/detail/${product.id}">${product.name}</a></td>
+            <td><a href="/product/detail/${product.id}">${product.name}</a></td>
             <td>${product.netPrice}</td>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <td>
-                    <a href="edit/${product.id}">
+                    <a href="/product/edit/${product.id}">
                         <button type="button" class="btn btn-primary btn-xs">Edit</button>
                     </a>
                     <a href="">
