@@ -27,6 +27,11 @@ public class Product implements Serializable {
     @Price
     private double netPrice;
 
+
+
+    @Column(name = "photo_url")
+    private String photoUrl;
+
     @Column
     private String description;
 
@@ -62,6 +67,10 @@ public class Product implements Serializable {
         return netPrice;
     }
 
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -85,6 +94,8 @@ public class Product implements Serializable {
     public void setNetPrice(double netPrice) {
         this.netPrice = netPrice;
     }
+
+    public void setPhotoUrl(String photoUrl) {this.photoUrl = photoUrl; }
 
     public void setDescription(String description) {
         this.description = description;

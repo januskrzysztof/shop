@@ -34,7 +34,7 @@
     <tbody>
     <c:forEach var="product" items="${productsInCategory}">
         <tr>
-            <td><img src="" class="img-responsive" alt="Product image"></td>
+            <td><img src="/resources/productImages/effective-java.jpeg" class="img-responsive" alt="Product image"></td>
             <td><a href="/product/detail/${product.id}">${product.name}</a></td>
             <td>${product.netPrice}</td>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
