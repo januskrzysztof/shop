@@ -16,7 +16,7 @@
                     <option value="books" ${categoryName == 'Books' ? 'selected' : ''}>Books</option>
                     <option value="e-books" ${categoryName == 'E-books' ? 'selected' : ''}>E-books</option>
                     <option value="music" ${categoryName == 'Music' ? 'selected' : ''}>Music</option>
-                    <option value="video" ${categoryName == 'Video' ? 'selected' : ''}>Video</option>
+                    <option value="movies" ${categoryName == 'Movies' ? 'selected' : ''}>Movies</option>
                     <option value="games" ${categoryName == 'Games' ? 'selected' : ''}>Games</option>
                 </select>
             </div>
