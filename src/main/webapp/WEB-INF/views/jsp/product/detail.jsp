@@ -42,7 +42,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <a href="/cart/add/${product.id}/${quantity}">
+                    <a href="/cart/add/${product.id}/">
                         <button type="button" class="btn btn-primary btn-xs">Add to cart</button>
                     </a>
                 </td>
