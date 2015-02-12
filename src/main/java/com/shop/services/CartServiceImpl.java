@@ -14,8 +14,10 @@ public class CartServiceImpl implements CartService {
     private HttpSession session;
 
     @Override
-    public void addProductToCart(Product product) {
-        getCart().addProduct(product);
+    public void addProductToCart(Product product, int quantity) {
+        for (int i = 0; i < quantity; i++) {
+            getCart().addProduct(product);
+        }
         save();
     }
 

@@ -26,7 +26,7 @@
             <tr>
                 <td>Quantity</td>
                 <td>
-                    <select>
+                    <select id="quantity" name="quantity">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -42,7 +42,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <a href="/cart/add/${product.id}">
+                    <a href="/cart/add/${product.id}/${quantity}">
                         <button type="button" class="btn btn-primary btn-xs">Add to cart</button>
                     </a>
                 </td>
