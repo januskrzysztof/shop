@@ -79,13 +79,16 @@ public class ProductRepository implements ProductDao {
 		} else {
 			return null;
 		}
+        if (!productName.isEmpty()) {
 
-		return (List<Product>) sessionFactory
-				.openSession()
-				.createQuery(SELECT_PRODUCTS_IN_CATEGORY)
-				.setParameter("c", c)
-				.setParameter("name", "%" + productName + "%")
-				.list();
+            return (List<Product>) sessionFactory
+                    .openSession()
+                    .createQuery(SELECT_PRODUCTS_IN_CATEGORY)
+                    .setParameter("c", c)
+                    .setParameter("name", "%" + productName + "%")
+                    .list();
+        }
+        return null;
 	}
 
 	@Override

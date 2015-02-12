@@ -7,13 +7,41 @@ import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by Krzysztof Januś on 2015-02-04.
  */
 @Repository("userRepository")
 public class UserRepository implements UserDao {
+
+
     @Autowired
     private SessionFactory em;
+
+
+    @Override
+    public List<User> getUsers() {
+        return (List<User>) em
+                .openSession()
+                .createQuery("from User u order by u.username")
+                .list();
+    }
+    @Override
+    public User findUserByLastName (String lastName) {
+        Session session = em.openSession();
+
+        try {
+            User user = (User) session.createQuery("from User u join u.person as p where p.lastName = :name")
+                    .setParameter("name",lastName).list().get(0);
+         return  user;
+
+
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public User findUserByUsername(String username) {
