@@ -3,7 +3,6 @@ package com.shop.models;
 import com.shop.exceptions.CartException;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -11,123 +10,147 @@ import java.util.Set;
  * Created by apbudzinski on 2015-02-05.
  */
 public class Cart implements Serializable {
-    private Set<CartProduct> cartProducts = new LinkedHashSet<>();
 
-    public void addProduct(Product product) {
-        if (hasProduct(product)) {
-            getCartProductByProduct(product).add();
-        } else {
-            if (product == null) {
-                throw new IllegalArgumentException("Product cannot be null!");
-            }
+	private Set<CartProduct> cartProducts = new LinkedHashSet<>();
 
-            cartProducts.add(new CartProduct(product));
-        }
-    }
+	private double totalPrice = 0;
 
-    public void removeProduct(Product product) {
-        if (hasProduct(product)) {
-            cartProducts.remove(getCartProductByProduct(product));
-        } else {
-            throw CartException.createCartProductNotFound(product);
-        }
-    }
+	public void calculateTotalPrice() {
+		for (CartProduct cartProduct : cartProducts) {
+			totalPrice = cartProduct.getQuantity() * cartProduct.getProduct().getNetPrice();
+		}
+	}
 
-    public void setCartProductQuantity(Product product, int quantity) {
-        if (hasProduct(product)) {
-            getCartProductByProduct(product).setQuantity(quantity);
-        } else {
-            throw CartException.createCartProductNotFound(product);
-        }
-    }
+	public void addProduct(Product product) {
+		if (hasProduct(product)) {
+			getCartProductByProduct(product).add();
+		} else {
+			if (product == null) {
+				throw new IllegalArgumentException("Product cannot be null!");
+			}
 
-    public boolean hasProduct(Product product) {
-        return getCartProductByProduct(product) != null;
-    }
+			cartProducts.add(new CartProduct(product));
+		}
+	}
 
-    public void clear() {
-        cartProducts = new LinkedHashSet<>();
-    }
+	public void removeProduct(Product product) {
+		if (hasProduct(product)) {
+			cartProducts.remove(getCartProductByProduct(product));
+		} else {
+			throw CartException.createCartProductNotFound(product);
+		}
+	}
 
-    private CartProduct getCartProductByProduct(Product product) {
-        for (CartProduct cartProduct : cartProducts) {
-            if (cartProduct.getProduct().equals(product)) {
-                return  cartProduct;
-            }
-        }
+		public void setCartProductQuantity(Product product, int quantity) {
+			if (hasProduct(product)) {
+				getCartProductByProduct(product).setQuantity(quantity);
+			} else {
+				throw CartException.createCartProductNotFound(product);
+			}
+		}
 
-        return null;
-    }
+	public boolean hasProduct(Product product) {
+		return getCartProductByProduct(product) != null;
+	}
 
-    /**
-     * Additional class
-     */
-    private static class CartProduct {
-        private Product product;
-        private int quantity;
+	public void clear() {
+		cartProducts = new LinkedHashSet<>();
+	}
 
-        public CartProduct(Product product) {
-            this.product = product;
-            quantity = 1;
-        }
+	private CartProduct getCartProductByProduct(Product product) {
+		for (CartProduct cartProduct : cartProducts) {
+			if (cartProduct.getProduct().equals(product)) {
+				return cartProduct;
+			}
+		}
 
-        public Product getProduct() {
-            return product;
-        }
+		return null;
+	}
 
-        public int getQuantity() {
-            return quantity;
-        }
+	public Set<CartProduct> getCartProducts() {
+		return cartProducts;
+	}
 
-        public void setQuantity(int quantity) {
-            if (quantity <= 0) {
-                throw new CartException("Quantity cannot be less then 0.");
-            }
+	public double getTotalPrice() {
+		calculateTotalPrice();
+		return totalPrice;
+	}
 
-            this.quantity = quantity;
-        }
+	/**
+	 * Additional class
+	 */
+	public static class CartProduct {
+		private Product product;
+		private int quantity;
 
-        public void add() {
-            ++quantity;
-        }
+		public CartProduct(Product product) {
+			this.product = product;
+			quantity = 1;
+		}
 
-        public void remove() {
-            if (quantity == 1) {
-                throw new CartException("Cannot remove product. Quantity is min(1). ");
-            }
-            --quantity;
-        }
+		public Product getProduct() {
+			return product;
+		}
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+		public int getQuantity() {
+			return quantity;
+		}
 
-            CartProduct that = (CartProduct) o;
+		public void setQuantity(int quantity) {
+			if (quantity <= 0) {
+				throw new CartException("Quantity cannot be less then 0.");
+			}
 
-            if (!product.equals(that.product)) return false;
+			this.quantity = quantity;
+		}
 
-            return true;
-        }
+		public void add() {
+			++quantity;
+		}
 
-        @Override
-        public int hashCode() {
-            return product.hashCode();
-        }
+		public void remove() {
+			if (quantity == 1) {
+				throw new CartException("Cannot remove product. Quantity is min(1). ");
+			}
+			--quantity;
+		}
 
-        @Override
-        public String toString() {
-            return "CartProduct{" +
-                    "product=" + product +
-                    ", quantity=" + quantity +
-                    '}';
-        }
-    }
+		@Override
+		public boolean equals(Object o) {
+			if (this == o) {
+				return true;
+			}
+			if (o == null || getClass() != o.getClass()) {
+				return false;
+			}
 
-    @Override
-    public String toString() {
-        return "Cart{" +
-                "products=" + cartProducts +
-                '}';
-    }
+			CartProduct that = (CartProduct) o;
+
+			if (!product.equals(that.product)) {
+				return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			return product.hashCode();
+		}
+
+		@Override
+		public String toString() {
+			return "CartProduct{" +
+					"product=" + product +
+					", quantity=" + quantity +
+					'}';
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Cart{" +
+				"products=" + cartProducts +
+				'}';
+	}
 }

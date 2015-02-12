@@ -11,10 +11,14 @@
     <link href="<c:url value="/resources/css/bootstrap-theme.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/signin.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/dashboard.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/cart.css" />" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
     <script src="<c:url value="/resources/js/jquery.min.js" />"></script>
     <script src="<c:url value="/resources/js/jquery.validate.min.js" />"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+    <script src="<c:url value="/resources/js/cart.js" />"></script>
 
     <title><tiles:getAsString name="title" defaultValue=""/></title>
 </head>
@@ -86,7 +90,7 @@
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li class="${current == 'account' ? 'active' : ''}"><a href="/account">My account</a></li>
-                        <li class="${current == 'cart' ? 'active' : ''}"><a href="/cart">My cart</a></li>
+                        <li class="${current == 'cart' ? 'active' : ''}"><a href="/cart/checkout">My cart</a></li>
                         <li><a href="/logout">Sign Out</a></li>
                     </sec:authorize>
                     <sec:authorize access="isAnonymous()">

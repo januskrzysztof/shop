@@ -118,9 +118,9 @@
     </definition>
 
     <definition name="cart/checkout" extends="base.definition">
-        <put-attribute name="title" value="Search" />
-        <put-attribute name="body" value="/WEB-INF/views/jsp/product/search.jsp" />
-        <put-attribute name="current" value="checkout" />
+        <put-attribute name="title" value="My cart" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/cart/checkout.jsp" />
+        <put-attribute name="current" value="cart" />
     </definition>
 
     <!-- ACCOUNT -->

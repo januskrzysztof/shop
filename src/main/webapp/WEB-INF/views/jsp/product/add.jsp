@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../../layout/taglib.jsp" %>
 
 <form:form method="post" class="form-horizontal" modelAttribute="productForm">
