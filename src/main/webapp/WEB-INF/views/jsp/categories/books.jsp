@@ -13,8 +13,8 @@
             <input type="text" class="form-control" id="productName" name="productName">
             <input type="hidden" id="categoryName" name="categoryName" value="${categoryName}">
         </div>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <button type="submit" class="btn btn-default">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <button type="submit" class="btn btn-default">
             <span class="glyphicon glyphicon-search"></span>
         </button>
     </form>
@@ -34,7 +34,7 @@
     <tbody>
     <c:forEach var="product" items="${productsInCategory}">
         <tr>
-            <td><img src="/resources/productImages/effective-java.jpeg" class="img-responsive" alt="Product image"></td>
+            <td><img src="${product.photoUrl}" height="80"></td>
             <td><a href="/product/detail/${product.id}">${product.name}</a></td>
             <td>${product.netPrice}</td>
             <sec:authorize access="hasRole('ROLE_ADMIN')">

@@ -25,6 +25,10 @@ public class Cart implements Serializable {
 		}
 	}
 
+	public Set<CartProduct> getCartProducts() {
+		return cartProducts;
+	}
+
 	public void addProduct(Product product) {
 		if (hasProduct(product)) {
 			getCartProductByProduct(product).add();
