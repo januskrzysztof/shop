@@ -3,6 +3,7 @@ package com.shop.web.controllers;
 import com.shop.exceptions.DaoException;
 import com.shop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+	@Secured("ROLE_MEMBER")
 	@RequestMapping(value = "/account", method = RequestMethod.GET)
 	public ModelAndView userInfo() {
 		String username = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
@@ -31,6 +33,7 @@ public class UserController {
 		return model;
 	}
 
+	@Secured("ROLE_MEMBER")
 	@RequestMapping(value = "/account", method = RequestMethod.POST)
 	public String edit(@Valid @ModelAttribute("userForm") com.shop.models.User user, BindingResult result) {
 		System.out.println("tuuuu");

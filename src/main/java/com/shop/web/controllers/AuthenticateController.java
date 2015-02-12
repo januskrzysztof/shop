@@ -1,12 +1,11 @@
 package com.shop.web.controllers;
 
-import org.springframework.http.HttpRequest;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,6 +45,7 @@ public class AuthenticateController {
         return model;
     }
 
+    @Secured("ROLE_MEMBER")
     @RequestMapping(value = "/logout")
     public String logout() {
         Authentication authentication = context.getAuthentication();
