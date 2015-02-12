@@ -1,25 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet"
-          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link href="<c:url value="/resources/css/bootstrap-theme.min.css" />" rel="stylesheet">
 
-    <link rel="stylesheet" href="//getbootstrap.com/examples/signin/signin.css">
+    <link href="<c:url value="/resources/css/signin.css" />" rel="stylesheet">
 
-    <link rel="stylesheet" href="//getbootstrap.com/examples/dashboard/dashboard.css">
+    <link href="<c:url value="/resources/css/dashboard.css" />" rel="stylesheet">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
     <script type="text/javascript"
             src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
 
     <%@ include file="taglib.jsp" %>
     <title><tiles:getAsString name="title" defaultValue=""/></title>
