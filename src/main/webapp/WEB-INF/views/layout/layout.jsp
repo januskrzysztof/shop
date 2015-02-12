@@ -4,24 +4,18 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet"
-          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-    <link rel="stylesheet"
-          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <link rel="stylesheet" href="//getbootstrap.com/examples/signin/signin.css">
-
-    <link rel="stylesheet" href="//getbootstrap.com/examples/dashboard/dashboard.css">
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-
-    <script type="text/javascript"
-            src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <%@ include file="taglib.jsp" %>
+
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/bootstrap-theme.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/signin.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/dashboard.css" />" rel="stylesheet">
+
+    <script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+    <script src="<c:url value="/resources/js/jquery.validate.min.js" />"></script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+
     <title><tiles:getAsString name="title" defaultValue=""/></title>
 </head>
 <body>
