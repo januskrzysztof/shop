@@ -59,6 +59,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="form-group">
+            <label for="photoUrl" class="col-lg-2 control-label">Photo URL</label>
+
+            <div class="col-lg-4">
+                <form:input id="photoUrl" path="photoUrl" cssClass="form-control" placeholder="Photo URL"/>
+                <div>
+                    <form:errors path="photoUrl">
+                        <div class="alert alert-danger"><form:errors path="photoUrl" htmlEscape="false"/></div>
+                    </form:errors>
+                </div>
+            </div>
+        </div>
+
     </fieldset>
 
     <hr/>

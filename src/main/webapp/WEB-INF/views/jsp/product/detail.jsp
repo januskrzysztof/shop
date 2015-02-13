@@ -4,7 +4,7 @@
 
 <div class="row placeholders">
     <div class="col-md-2">
-        <img src="${product.photoUrl}" alt="Product image" width="170">
+        <img src="${product.photoUrl}" alt="Product image" width="150">
     </div>
     <div class="col-md-8">
         <h2>${product.name}</h2>
