@@ -43,7 +43,7 @@ public class UserRepository implements UserDao {
         try {
             for (int i = 0; i < persons.size(); i++) {
                 User user = (User) session.createQuery("from User u where u.person= :id")
-                        .setParameter("id", persons.get(i)).list().get(i);
+                        .setParameter("id", persons.get(i)).list().get(0);
                 users.add(user);
             }
 
