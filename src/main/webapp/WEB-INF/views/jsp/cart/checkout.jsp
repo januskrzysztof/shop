@@ -33,7 +33,8 @@
         <li class="row totals">
             <span class="itemName">Total:</span>
             <span class="price">$${cart.totalPrice}</span>
-            <span class="order"> <a class="text-center">ORDER</a></span>
+
+            <span class="order"> <a class="text-center" href="/cart/order">ORDER</a></span>
         </li>
 
     </ul>
