@@ -1,7 +1,6 @@
 package com.shop.models;
 
-import com.shop.validator.Price;
-import org.hibernate.validator.constraints.NotEmpty;
+import com.shop.validator.ProductName;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -20,14 +19,11 @@ public class Product implements Serializable {
     private int id;
 
     @Column(nullable = false, length = 255)
-    @NotEmpty(message = "Category name cannot be empty")
+    @ProductName
     private String name;
 
     @Column(name = "net_price", nullable = false, columnDefinition = "DECIMAL(11,4) default '0.000'", precision = 11, scale = 4)
-    @Price
     private double netPrice;
-
-
 
     @Column(name = "photo_url")
     private String photoUrl;
