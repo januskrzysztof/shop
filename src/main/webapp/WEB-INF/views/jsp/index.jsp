@@ -45,17 +45,17 @@
 </script>
 
 
-<h1 class="page-header">Welcome in Luxoft Online Shop</h1>
+<h1 class="page-header" align="center">Welcome in Luxoft Online Store</h1>
 
 <div class="row placeholders">
-    <div style="width: 235px; float: left; margin-left: 40px; margin-top: 10px ">
+    <div style="width: 235px; float: left; margin-left: 40px; margin-top: 50px ">
         <a href="" id="imgSource"><img src="" width='150px' height='180px' id="imgField" margin-left='10px'
                                        margin-right="10px"></a>
     </div>
-    <div style="width: 235px; float:left">
+    <div style="width: 235px; float:left;margin-top: 40px">
         <a href="" id="imgSource2"><img src="" width='180px' height='220px' id="imgField2"></a>
     </div>
-    <div style="width: 235px; float: left; margin-right: 40px; margin-top: 10px">
+    <div style="width: 235px; float: left; margin-right: 40px; margin-top: 50px">
         <a href="" id="imgSource3"> <img src="" width='150px' height='180px' id="imgField3"></a>
     </div>
     <script>

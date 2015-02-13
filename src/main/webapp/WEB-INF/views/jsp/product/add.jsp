@@ -15,7 +15,7 @@
                     <option value="books">Books</option>
                     <option value="e-books">E-books</option>
                     <option value="music">Music</option>
-                    <option value="video">Video</option>
+                    <option value="movies">Movies</option>
                     <option value="games">Games</option>
                 </select>
             </div>

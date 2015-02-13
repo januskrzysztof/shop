@@ -12,7 +12,7 @@
         <h4>Edit product</h4>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
-        <a href="product/search"><button type="button" class="btn btn-primary btn-lg">Orders</button></a>
+        <a href="/orders"><button type="button" class="btn btn-primary btn-lg">Orders</button></a>
         <h4>Orders</h4>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">

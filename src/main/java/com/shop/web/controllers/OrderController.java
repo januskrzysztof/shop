@@ -23,4 +23,11 @@ public class OrderController {
 		cartService.setSession(session).getCart().clear();
 		return model;
 	}
+
+	@Secured("ROLE_ADMIN")
+	@RequestMapping(value = "/orders", method = RequestMethod.GET)
+	public ModelAndView showOrders(HttpSession session) {
+		ModelAndView model = new ModelAndView();
+		return model;
+	}
 }

@@ -54,6 +54,11 @@
                     </a>
                 </td>
             </sec:authorize>
+            <td>
+                <a href="/cart/add/${product.id}">
+                    <button type="button" class="btn btn-primary btn-xs">Add to cart</button>
+                </a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>

@@ -99,7 +99,7 @@
                     <li class="${current == 'add' ? 'active' : ''}"><a href="/product/add">Add product</a></li>
                     <li class="${current == 'edit' ? 'active' : ''}"><a href="/product/search">Edit product</a></li>
                     <li class="${current == 'users' ? 'active' : ''}"><a href="/users/users">Users</a></li>
-                    <li class="${current == 'orders' ? 'active' : ''}"><a href="">Orders</a></li>
+                    <li class="${current == 'orders' ? 'active' : ''}"><a href="/orders">Orders</a></li>
                 </ul>
             </sec:authorize>
             <ul class="nav nav-sidebar">

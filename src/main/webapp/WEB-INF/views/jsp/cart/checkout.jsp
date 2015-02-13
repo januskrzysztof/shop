@@ -42,7 +42,6 @@
 
 <c:forEach var="cartProduct" items="${cart.cartProducts}">
     <div id="popover" style="display: none">
-        <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
         <a href="/cart/remove/${cartProduct.product.id}"><span class="glyphicon glyphicon-remove"></span></a>
     </div>
 </c:forEach>
