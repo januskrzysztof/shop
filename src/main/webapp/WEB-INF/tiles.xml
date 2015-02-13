@@ -129,4 +129,23 @@
         <put-attribute name="body" value="/WEB-INF/views/jsp/account.jsp"/>
         <put-attribute name="current" value="account"/>
     </definition>
+
+    <!-- USERS -->
+    <definition name="users/users" extends="base.definition">
+        <put-attribute name="title" value="Users"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/users/users.jsp"/>
+        <put-attribute name="current" value="users"/>
+    </definition>
+
+    <definition name="users/findUser" extends="base.definition">
+        <put-attribute name="title" value="Users"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/users/findUser.jsp"/>
+        <put-attribute name="current" value="users"/>
+    </definition>
+
+    <definition name="users/details" extends="base.definition">
+        <put-attribute name="title" value="Users"/>
+        <put-attribute name="body" value="/WEB-INF/views/jsp/users/details.jsp"/>
+        <put-attribute name="current" value="users"/>
+    </definition>
 </tiles-definitions>

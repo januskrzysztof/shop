@@ -28,14 +28,14 @@ public class UserRepository implements UserDao {
                 .list();
     }
     @Override
-    public User findUserByLastName (String lastName) {
+    public List<User> findUserByLastName(String lastName) {
         Session session = em.openSession();
 
         try {
-            User user = (User) session.createQuery("from User u join u.person as p where p.lastName = :name")
-                    .setParameter("name",lastName).list().get(0);
-         return  user;
-
+            List<User> users = (List<User>) session.createQuery("from User u join u.person as p where p.lastName = " +
+                    ":name").setParameter("name", lastName).list();
+         return users;
+            // (from user)
 
         } catch (Exception e) {
           e.printStackTrace();

@@ -15,13 +15,14 @@ public class Cart implements Serializable {
 	private double totalPrice = 0;
 
 	public double getTotalPrice() {
+		totalPrice = 0;
 		calculateTotalPrice();
 		return totalPrice;
 	}
 
 	public void calculateTotalPrice() {
 		for (CartProduct cartProduct : cartProducts) {
-			totalPrice = cartProduct.getQuantity() * cartProduct.getProduct().getNetPrice();
+			totalPrice += cartProduct.getQuantity() * cartProduct.getProduct().getNetPrice();
 		}
 	}
 

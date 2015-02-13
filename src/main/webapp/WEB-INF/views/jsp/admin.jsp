@@ -16,7 +16,7 @@
         <h4>Orders</h4>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
-        <a href="product/search"><button type="button" class="btn btn-primary btn-lg">Clients</button></a>
+        <a href="/users/users"><button type="button" class="btn btn-primary btn-lg">Users</button></a>
         <h4>Clients</h4>
     </div>
 </div>

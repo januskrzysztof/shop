@@ -23,11 +23,10 @@ public class CartController {
 	private CartServiceImpl cartService;
 
 	@Secured("ROLE_MEMBER")
-	@RequestMapping(value = "/add/{product}/{quantity}", method = RequestMethod.GET)
-	public String add(@PathVariable Product product, @PathVariable int quantity, HttpServletRequest request,
+	@RequestMapping(value = "/add/{product}", method = RequestMethod.GET)
+	public String add(@PathVariable Product product, HttpServletRequest request,
 					  HttpSession session) {
-		System.out.println(quantity);
-		cartService.setSession(session).addProductToCart(product, quantity);
+		cartService.setSession(session).addProductToCart(product);
 		return redirect(request);
 	}
 

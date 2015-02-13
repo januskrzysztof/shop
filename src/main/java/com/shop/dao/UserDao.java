@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserDao {
 
     public List<User> getUsers();
-    public User findUserByLastName(String lastName);
+    public List<User> findUserByLastName(String lastName);
     public User findUserByUsername(String username);
     public User getUser(int id);
     public void update(User user) throws DaoException;

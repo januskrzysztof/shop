@@ -98,7 +98,7 @@
                     <li>ADMIN DASHBOARD</li>
                     <li class="${current == 'add' ? 'active' : ''}"><a href="/product/add">Add product</a></li>
                     <li class="${current == 'edit' ? 'active' : ''}"><a href="/product/search">Edit product</a></li>
-                    <li class="${current == 'clients' ? 'active' : ''}"><a href="">Clients</a></li>
+                    <li class="${current == 'users' ? 'active' : ''}"><a href="/users/users">Users</a></li>
                     <li class="${current == 'orders' ? 'active' : ''}"><a href="">Orders</a></li>
                 </ul>
             </sec:authorize>
@@ -109,7 +109,6 @@
             </ul>
             <ul class="nav nav-sidebar">
                 <li>CATEGORIES</li>
-                <li class="${current == 'top' ? 'active' : ''}"><a href="#">Top sales</a></li>
                 <li class="${current == 'books' ? 'active' : ''}"><a href="/categories/books">Books</a></li>
                 <li class="${current == 'e-books' ? 'active' : ''}"><a href="/categories/e-books">E-books</a></li>
                 <li class="${current == 'music' ? 'active' : ''}"><a href="/categories/music">Music</a></li>
