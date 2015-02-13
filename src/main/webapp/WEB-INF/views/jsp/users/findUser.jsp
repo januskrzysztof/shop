@@ -35,7 +35,7 @@
             <td>${user.person.firstName}</td>
             <td>${user.person.lastName}</td>
             <td>
-                <a href="/clients/details/${product.id}">
+                <a href="/users/details/${user.id}">
                     <button type="button" class="btn btn-primary btn-xs">Details</button>
                 </a>
             </td>

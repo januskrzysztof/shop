@@ -38,7 +38,6 @@ public class ClientsController {
 		ModelAndView model = new ModelAndView("users/findUser");
 		List<User> users = userDao.findUserByLastName(lastName);
 		model.addObject("users", users);
-		System.out.println(users);
 		return model;
 	}
 
